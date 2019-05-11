@@ -7,23 +7,23 @@ def index ():
     return render_template ("index.html")
 
     @app.route('/tabory')
-def index ():
+def tabory ():
     return render_template ("tabory.html")
 
 @app.route('/dobrovolnicti')
-def index ():
+def dobrovolnictvi ():
     return render_template ("dobrovolnictvi.html")
 
 @app.route('/prace')
-def index ():
+def prace ():
     return render_template ("prace.html")
 
 @app.route('/onas')
-def index ():
+def onas ():
     return render_template ("onas.html")
 
-    @app.route('/registrace')
-def index ():
+@app.route('/registrace')
+def registrace ():
     return render_template ("registrace.html")
     
     @app.route('/prihlaseni')
