@@ -27,7 +27,7 @@ def registrace ():
     return render_template ("registrace.html")
     
     @app.route('/prihlaseni')
-def index ():
+def prihlaseni ():
     return render_template ("prihlaseni.html")
 
 
