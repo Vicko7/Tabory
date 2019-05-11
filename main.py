@@ -6,7 +6,7 @@ app= Flask("Tabory")
 def index ():
     return render_template ("index.html")
 
-    @app.route('/tabory')
+@app.route('/tabory')
 def tabory ():
     return render_template ("tabory.html")
 
@@ -26,7 +26,7 @@ def onas ():
 def registrace ():
     return render_template ("registrace.html")
     
-    @app.route('/prihlaseni')
+@app.route('/prihlaseni')
 def prihlaseni ():
     return render_template ("prihlaseni.html")
 
