@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:$PORT main:hledamtabor
+web: gunicorn -b 0.0.0.0:$PORT app:hledamtabor
