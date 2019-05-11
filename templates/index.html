@@ -1,30 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <!-- Site made with Mobirise Website Builder v4.10.0, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.10.0, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="../assets/images/logo2.png" type="image/x-icon">
-  <meta name="description" content="Hledám tábor, dobrovolnictví, práce">
-  
-  <title>Hledám tábor</title>
-  <!-- <link rel="stylesheet" href="../assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="../assets/tether/tether.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="../assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="../assets/theme/css/style.css">
-  <link rel="stylesheet" href="../assets/mobirise/css/mbr-additional.css" type="text/css"> -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% block body %}
 
-</head>
-
-<body>
 
     <!-- Google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -40,9 +17,6 @@
 
 
     <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
-
-
-
         <nav
             class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -99,8 +73,6 @@
     <section class="engine"><a href="https://mobirise.info/d">free site maker</a></section>
     <section class="features3 cid-rpUYdNoG90" id="features3-5">
             
-
-
         <div class="container">
             <div class="media-container-row">
                 <div class="card p-3 col-12 col-md-6 col-lg-4">
@@ -349,9 +321,6 @@
     <script src="../assets/touchswipe/jquery.touch-swipe.min.js"></script>
     <script src="../assets/smoothscroll/smooth-scroll.js"></script>
     <script src="../assets/theme/js/script.js"></script>
-    
-    
 
-</body>
 
-</html>
+    {% endblock %}
