@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<section class="engine"><a href="https://mobirise.info/d">free site maker</a></section>
+<section class="features3 cid-rpUYdNoG90" id="features3-5">
+
+<div class="container">
+<h1>Výsledky hledání</h1>
+
+
+<table>
+    {% for tabor in tabory_z_db %}
+    <tr>
+        <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</div>
+</section>
+
+
+
+{% endblock %}
