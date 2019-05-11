@@ -32,27 +32,27 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="tabory.html">Tábory</a>
+                        <a class="nav-link link text-white display-4" href="/tabory">Tábory</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="dobrovolnictvi.html">
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/dobrovolnictvi">
                             Dobrovolnictví</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="prace.html">
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/prace">
                             Práce</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="mapa.html">
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/mapa">
                         Mapa táborů</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="onas.html">
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/onas">
                             O nás </a>
                     </li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="registrace.html">
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/registrace">
                             Registrace</a>
                     </li>
                 </ul>
                 <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4"
-                        href="prihlaseni.html">
+                        href="/prihlaseni">
                         Přihlášení</a></div>
             </div>
         </nav>
@@ -68,7 +68,7 @@
                             <img src="{{ url_for('static', filename='background1.jpg') }}" alt="tabory">
                         </div>
                         <div class="mbr-section-btn text-center">
-                                <a href="tabory.html" class="btn btn-primary display-4">
+                                <a href="/tabory" class="btn btn-primary display-4">
                                     TÁBORY
                                 </a>
                             </div>
@@ -88,7 +88,7 @@
                             <img src="{{ url_for('static', filename='background2.jpg') }}" alt="dobrovolnictvi">
                         </div>
                         <div class="mbr-section-btn text-center">
-                                <a href="dobrovolnictvi.html" class="btn btn-primary display-4">
+                                <a href="/dobrovolnictvi" class="btn btn-primary display-4">
                                     DOBROVOLNICTVÍ
                                 </a>
                             </div>
@@ -108,7 +108,7 @@
                             <img src="{{ url_for('static', filename='background3.jpg') }}" alt="prace">
                         </div>
                         <div class="mbr-section-btn text-center">
-                                <a href="prace.html" class="btn btn-primary display-4">
+                                <a href="/prace" class="btn btn-primary display-4">
                                     PRÁCE
                                 </a>
                             </div>
@@ -150,7 +150,7 @@
                                               100
                                         </h1>
                                         <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-8">
-                                            Přímestské tábory
+                                            Příměstské tábory
                                         </h4>
                                         <!--<p class="mbr-content-text mbr-fonts-style display-7">
                                             Mobirise give you the freedom to develop as many websites as you like given the fact that it is desktop app. Mobirise is the perfect gide.
@@ -294,15 +294,14 @@
         </div>
     </section>
 
-    <script src="../assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="../assets/popper/popper.min.js"></script>
-    <script src="../assets/tether/tether.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/viewportchecker/jquery.viewportchecker.js"></script>
-    <script src="../assets/dropdown/js/script.min.js"></script>
-    <script src="../assets/touchswipe/jquery.touch-swipe.min.js"></script>
-    <script src="../assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="../assets/theme/js/script.js"></script>
-
-
+    <script src="{{ url_for('static', filename='web/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='popper/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='tether/tether.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='viewportchecker/jquery.viewportchecker.js') }}"></script>
+    <script src="{{ url_for('static', filename='dropdown/js/script.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='touchswipe/jquery.touch-swipe.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='smoothscroll/smooth-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme/js/script.js') }}"></script>
+   
     {% endblock %}

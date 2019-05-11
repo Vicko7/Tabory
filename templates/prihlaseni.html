@@ -302,14 +302,15 @@
         </div>
     </section>
 
-    <script src="../assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="../assets/popper/popper.min.js"></script>
-    <script src="../assets/tether/tether.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/viewportchecker/jquery.viewportchecker.js"></script>
-    <script src="../assets/dropdown/js/script.min.js"></script>
-    <script src="../assets/touchswipe/jquery.touch-swipe.min.js"></script>
-    <script src="../assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="../assets/theme/js/script.js"></script>
+    <script src="{{ url_for('static', filename='web/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='popper/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='tether/tether.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='viewportchecker/jquery.viewportchecker.js') }}"></script>
+    <script src="{{ url_for('static', filename='dropdown/js/script.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='touchswipe/jquery.touch-swipe.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='smoothscroll/smooth-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme/js/script.js') }}"></script>
+   
     
     {% endblock %}
