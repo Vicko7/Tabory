@@ -22,10 +22,32 @@ def tabory_hledani():
     print(request.form)
 
     kraje_sql = ["1=1"]
-    if requests.form.get("kraj_karlovarsky") == 1:
-        kraje_sql.append("kraj_karlovarsky = 1")
-    if requests.form.get("kraj_ustecky") == 1:
-        kraje_sql.append("kraj_ustecky = 1")
+    if requests.form.get("region_Praha") == 1:
+        kraje_sql.append("region_Praha = 1")
+    if requests.form.get("region_jihocesky") == 1:
+        kraje_sql.append("region_jihocesky = 1")
+    if requests.form.get("region_jihomoravsky") == 1:
+        kraje_sql.append("region_jihomoravsky = 1")
+    if requests.form.get("region_karlovarsky") == 1:
+        kraje_sql.append("region_karlovarsky = 1")
+    if requests.form.get("region_vysocina") == 1:
+        kraje_sql.append("region_vysocina = 1")
+    if requests.form.get("region_kralovehradecky") == 1:
+        kraje_sql.append("region_kralovehradecky = 1")
+    if requests.form.get("region_moravskoslezky") == 1:
+        kraje_sql.append("region_moravskoslezky = 1")
+    if requests.form.get("region_olomoucky") == 1:
+        kraje_sql.append("region_olomoucky = 1")
+    if requests.form.get("region_pardubicky") == 1:
+        kraje_sql.append("region_pardubicky = 1")
+    if requests.form.get("region_plzensky") == 1:
+        kraje_sql.append("region_plzensky = 1")
+    if requests.form.get("region_stredocesky") == 1:
+        kraje_sql.append("region_stredocesky = 1")
+    if requests.form.get("region_ustecky") == 1:
+        kraje_sql.append("region_ustecky = 1")
+    if requests.form.get("region_zlinsky") == 1:
+        kraje_sql.append("region_zlinsky = 1")
     kraje_sql_where = " OR ".join(kraje_sql)
 
     conn = db.get_db()
@@ -59,6 +81,10 @@ def prace():
 @app.route('/onas')
 def onas():
     return render_template ("onas.html")
+
+@app.route('/mapa')
+def onas():
+    return render_template ("mapa.html")
 
 @app.route('/registrace')
 def registrace():
