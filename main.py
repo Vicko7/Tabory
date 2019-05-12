@@ -3,6 +3,9 @@ import db
 
 app= Flask("Tabory")
 
+# Zaregistruje funkci close_db() do naší aplikace jako funkci, která se má spustit,
+# když se ukončuje naše aplikace
+
 @app.teardown_appcontext
 def close_db(error):
     if hasattr(g, 'db'):
@@ -83,7 +86,7 @@ def onas():
     return render_template ("onas.html")
 
 @app.route('/mapa')
-def onas():
+def mapa():
     return render_template ("mapa.html")
 
 @app.route('/registrace')
