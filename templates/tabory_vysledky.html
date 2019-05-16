@@ -12,6 +12,19 @@
 <table>
     {% for tabor in tabory_z_db %}
     <tr>
+        <td><a href="/tabory/{{ tabory.camp_id }}">{{ tabor.camp_name }}</a></td>
+        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+    </tr>
+    <tr>
+        <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+    </tr>
+    <tr>
+        <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+    </tr>
+    <tr>
         <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
         <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
     </tr>

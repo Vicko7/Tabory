@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request, g
 import db
+import functools
+import databaze
+#import main
+#import gunicorn
+app = Flask("WEB TABORY")
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-app= Flask("Tabory")
+
 
 # Zaregistruje funkci close_db() do naší aplikace jako funkci, která se má spustit,
 # když se ukončuje naše aplikace
@@ -81,6 +87,14 @@ def dobrovolnictvi():
 def prace():
     return render_template ("prace.html")
 
+@app.route('/prace', methods=('GET', 'POST'))
+def dotaznik ():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        databaze.registrace_nr(email, password)
+    return render_template("success.html")
+
 @app.route('/onas')
 def onas():
     return render_template ("onas.html")
@@ -97,5 +111,53 @@ def registrace():
 def prihlaseni():
     return render_template ("prihlaseni.html")
 
+@app.route('/registrace_org', methods=["GET"])
+def zobraz_registraci_org ():
+    return render_template("registrace_org.html")
+    
 
+@app.route('/registrace_org', methods=('POST'))
+def registrace_org():
+    if request.method == 'POST':
+        organizer_ico = request.form['organizer_ico']
+        organizer_dic = request.form['organizer_dic']
+        organizer_name = request.form['organizer_name']
+        organizer_address = request.form['organizer_address']
+        organizer_street_num = request.form['organizer_street_num']
+        organizer_psc = request.form['organizer_psc']
+        organizer_city = request.form['organizer_city']
+        organizer_phone = request.form['organizer_phone']
+        organizer_web = request.form['organizer_web']
+        organizer_contact_person = request.form['organizer_contact_person']
+        organizer_description = request.form['organizer_description']
+        organizer_username = request.form['organizer_username']
+        organizer_password = request.form['organizer_password']
+        organizer_password_confirmed = request.form['organizer_password_confirmed']
+        organizer_email = request.form['organizer_email']
+        organizer_gdpr = request.form['organizer_gdpr']
+        databaze.registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
+        organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
+        organizer_username, organizer_password, organizer_password_confirmed, organizer_email, organizer_gdpr)
+    return render_template('/success.html')
+
+@app.route('/registrace_uz')
+def zobraz_registraci_uz ():
+    return render_template("registrace_uz.html")
+
+@app.route('/registrace_uz', methods=('GET', 'POST'))
+def registrace_uz ():
+    if request.method == 'POST':
+        jmeno = request.form['jmeno']
+        prijmeni = request.form['prijmeni']
+        email = request.form['email']
+        password = request.form['password']
+        password_confirmed = request.form['password_confirmed']
+        databaze.registrace_uz(jmeno, prijmeni, email, password, password_confirmed)
+    return render_template("success.html")
+
+
+@app.route('/success')
+def success ():
+    return render_template("success.html",
+    )
 
