@@ -116,7 +116,7 @@ def zobraz_registraci_org ():
     return render_template("registrace_org.html")
     
 
-@app.route('/registrace_org', methods=('POST'))
+@app.route('/registrace_org', methods=["POST"]) 
 def registrace_org():
     if request.method == 'POST':
         organizer_ico = request.form['organizer_ico']
@@ -158,6 +158,5 @@ def registrace_uz ():
 
 @app.route('/success')
 def success ():
-    return render_template("success.html",
-    )
+    return render_template("success.html")
 
