@@ -22,11 +22,11 @@ def close_db(error):
 def index():
     return render_template ("index.html")
 
-@app.route('/tabory', methods=['GET'])
+@app.route('/tabory', methods=["GET"])
 def tabory():
     return render_template ("tabory.html")
 
-@app.route('/tabory', methods=['POST'])
+@app.route('/tabory', methods=["POST"])
 def tabory_hledani():
     print(request.form)
 
@@ -87,8 +87,8 @@ def dobrovolnictvi():
 def prace():
     return render_template ("prace.html")
 
-@app.route('/prace', methods=('GET', 'POST'))
-def vloz_praci ():
+@app.route('/prace', methods=("GET", "POST"))
+def vloz_praci():
     if request.method == 'POST':
         datum = request.form['datum']
         typ = request.form['typ']
@@ -109,13 +109,13 @@ def mapa():
 def prihlaseni():
     return render_template ("prihlaseni.html")
 
-@app.route('/registrace_org', methods=['GET'])
-def registrace_org ():
+@app.route('/registrace_org', methods=["GET"])
+def registrace_org():
     return render_template("registrace_org.html")
     
 
-@app.route('/registrace_org', methods=['POST']) 
-def registrace_org():
+@app.route('/registrace_org', methods=["POST"]) 
+def registrace_org_post():
     if request.method == 'POST':
         organizer_ico = request.form['organizer_ico']
         organizer_dic = request.form['organizer_dic']
@@ -136,14 +136,14 @@ def registrace_org():
         databaze.registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
         organizer_username, organizer_password, organizer_password_confirmed, organizer_email, organizer_gdpr)
-    return render_template('/success.html')
+    return render_template("success.html")
 
-@app.route('/registrace_uz', methods=['GET'])
-def registrace_uz ():
+@app.route('/registrace_uz', methods=["GET"])
+def registrace_uz():
     return render_template("registrace_uz.html")
 
-@app.route('/registrace_uz', methods=('POST'))
-def registrace_uz ():
+@app.route('/registrace_uz', methods=["POST"])
+def registrace_uz_post():
     if request.method == 'POST':
         jmeno = request.form['jmeno']
         prijmeni = request.form['prijmeni']
@@ -155,6 +155,6 @@ def registrace_uz ():
 
 
 @app.route('/success')
-def success ():
+def success():
     return render_template("success.html")
 
