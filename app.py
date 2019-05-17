@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, g
 import db
 import functools
 import databaze
+import logging
 #import main
 #import gunicorn
 app = Flask("WEB_TABORY")
@@ -157,4 +158,10 @@ def registrace_uz_post():
 @app.route('/success')
 def success():
     return render_template("success.html")
+
+
+if __name__ != '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
 
