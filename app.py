@@ -4,7 +4,7 @@ import functools
 import databaze
 #import main
 #import gunicorn
-app = Flask("WEB TABORY")
+app = Flask("WEB_TABORY")
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
@@ -22,11 +22,11 @@ def close_db(error):
 def index():
     return render_template ("index.html")
 
-@app.route('/tabory', methods=["GET"])
+@app.route('/tabory', methods=['GET'])
 def tabory():
     return render_template ("tabory.html")
 
-@app.route('/tabory', methods=["POST"])
+@app.route('/tabory', methods=['POST'])
 def tabory_hledani():
     print(request.form)
 
@@ -88,11 +88,12 @@ def prace():
     return render_template ("prace.html")
 
 @app.route('/prace', methods=('GET', 'POST'))
-def dotaznik ():
+def vloz_praci ():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        databaze.registrace_nr(email, password)
+        datum = request.form['datum']
+        typ = request.form['typ']
+        text = request.form['text']
+        databaze.registrace_prace(datum, typ, text)
     return render_template("success.html")
 
 @app.route('/onas')
@@ -103,20 +104,17 @@ def onas():
 def mapa():
     return render_template ("mapa.html")
 
-@app.route('/registrace')
-def registrace():
-    return render_template ("registrace.html")
     
 @app.route('/prihlaseni')
 def prihlaseni():
     return render_template ("prihlaseni.html")
 
-@app.route('/registrace_org', methods=["GET"])
-def zobraz_registraci_org ():
+@app.route('/registrace_org', methods=['GET'])
+def registrace_org ():
     return render_template("registrace_org.html")
     
 
-@app.route('/registrace_org', methods=["POST"]) 
+@app.route('/registrace_org', methods=['POST']) 
 def registrace_org():
     if request.method == 'POST':
         organizer_ico = request.form['organizer_ico']
@@ -140,11 +138,11 @@ def registrace_org():
         organizer_username, organizer_password, organizer_password_confirmed, organizer_email, organizer_gdpr)
     return render_template('/success.html')
 
-@app.route('/registrace_uz')
-def zobraz_registraci_uz ():
+@app.route('/registrace_uz', methods=['GET'])
+def registrace_uz ():
     return render_template("registrace_uz.html")
 
-@app.route('/registrace_uz', methods=('GET', 'POST'))
+@app.route('/registrace_uz', methods=('POST'))
 def registrace_uz ():
     if request.method == 'POST':
         jmeno = request.form['jmeno']

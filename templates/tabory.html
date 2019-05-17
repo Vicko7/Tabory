@@ -164,7 +164,32 @@
 
                 <br>
                 <br>
-                           
+                
+                <h4><small>Termín</small></h4><br>
+                <label for="from-date">Od:</label>
+                  <input type="date" id="from-date"><br>
+                <label for="from-date">Do:</label>
+                  <input type="date" id="from-date">
+
+                
+                  <h4><small>Cena</small></h4><br>
+                  <select name="cena" class="custom-select-sm">
+                          <option selected>Nerozhoduje</option>
+                          <option value="price_to">0 až 2000 Kč</option>
+                          <option value="price_more">2001 Kč a více</option>
+                  </select>
+        
+        <input type="submit" value="HLEDAT">
+         </form>
+    
+    </div>
+</div>
+</section>
+
+       
+    {% endblock %}
+
+               
                     <!--<div class="btn-group" role="group">
                              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Praha
@@ -196,18 +221,3 @@
                      </div>    
                      -->     
        
-                <h4><small>Termín</small></h4><br>
-                <label for="from-date">Od:</label>
-                  <input type="date" id="from-date"><br>
-                <label for="from-date">Do:</label>
-                  <input type="date" id="from-date">
-        
-        <input type="submit" value="HLEDAT">
-         </form>
-    
-    </div>
-</div>
-</section>
-
-       
-    {% endblock %}
