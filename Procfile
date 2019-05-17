@@ -1,2 +1,2 @@
-web: gunicorn -b 0.0.0.0:$PORT main:app
---log-level=debug
+web: gunicorn -b 0.0.0.0:$PORT app:app --log-level=debug
+
