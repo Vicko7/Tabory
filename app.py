@@ -133,10 +133,9 @@ def registrace_org_post():
         organizer_password = request.form['organizer_password']
         organizer_password_confirmed = request.form['organizer_password_confirmed']
         organizer_email = request.form['organizer_email']
-        organizer_gdpr = request.form['organizer_gdpr']
         databaze.registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
-        organizer_username, organizer_password, organizer_password_confirmed, organizer_email, organizer_gdpr)
+        organizer_username, organizer_password, organizer_password_confirmed, organizer_email)
     return render_template("success.html")
 
 @app.route('/registrace_uz', methods=["GET"])
