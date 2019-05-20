@@ -47,7 +47,7 @@ def registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_addre
         (organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
         organizer_username, organizer_password, organizer_password_confirmed, organizer_email)
-        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;"""
+        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING organizer_id;"""
     conn = get_db()
     org_id = None
     #password = hash_password(password)     
