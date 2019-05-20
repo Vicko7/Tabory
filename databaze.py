@@ -43,7 +43,7 @@ def registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_addre
     organizer_username, organizer_password, organizer_password_confirmed, organizer_email):
 
     """ vlozi noveho oraganizatora do databaze """
-    sql = """INSERT INTO databaze_org
+    sql = """INSERT INTO public.databaze_org
         (organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
         organizer_username, organizer_password, organizer_password_confirmed, organizer_email)
