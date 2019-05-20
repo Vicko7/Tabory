@@ -1,20 +1,77 @@
 import db
+import psycopg2
+import psycopg2.extras
+import datetime
+import os
+import hashlib, binascii
+from flask import g, flash
+from hashlib import sha512
+from flask_login import UserMixin
+from functools import lru_cache
+
+def get_db():
+    """ Spojeni s dtb. """
+    if not hasattr(g, 'db') or g.db.closed == 1:
+		# https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-python
+        database_url = os.environ["DATABASE_URL"]
+    #database_url = os.environ["DATABASE_URL"]
+        con = psycopg2.connect(database_url, sslmode='require')
+        g.db = con
+    return g.db
+
+def hash_password(password):
+    """Hash a password for storing."""
+    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
+    pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'), 
+                                salt, 100000)
+    pwdhash = binascii.hexlify(pwdhash)
+    return (salt + pwdhash).decode('ascii')
+ 
+def verify_password(stored_password, provided_password):
+    """Verify a stored password against one provided by user"""
+    salt = stored_password[:64]
+    stored_password = stored_password[64:]
+    pwdhash = hashlib.pbkdf2_hmac('sha512', 
+                                  provided_password.encode('utf-8'), 
+                                  salt.encode('ascii'), 
+                                  100000)
+    pwdhash = binascii.hexlify(pwdhash).decode('ascii')
+    return pwdhash == stored_password
 
 def registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
     organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
     organizer_username, organizer_password, organizer_password_confirmed, organizer_email):
 
-#pripojeni k databazi a zavolam import db
-    conn = db.get_db()
-#sql dotaz na import registrace organizatora
-    sql = "INSERT INTO databaze_org VALUES " + ' '.join([organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
+    """ vlozi noveho oraganizatora do databaze """
+    sql = """INSERT INTO databaze_org
+        (organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
-        organizer_username, organizer_password, organizer_password_confirmed, organizer_email])
-    print(sql)
-    cur = conn.cursor()
-#vykonej ten dotaz
-    cur.execute(sql)
-    
+        organizer_username, organizer_password, organizer_password_confirmed, organizer_email)
+        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;"""
+    conn = get_db()
+    org_id = None
+    #password = hash_password(password)     
+    try:
+        cur = conn.cursor()
+        # execute the INSERT statement
+        cur.execute(sql, (organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
+        organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
+        organizer_username, organizer_password, organizer_password_confirmed, organizer_email))
+        # get the generated id back
+        org_id = cur.fetchone()[0]
+        # commit the changes to the database
+        conn.commit()
+        # close communication with the database
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        flash('Vaše emailová adresa už je v naší databázi.')
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+    return org_id
+
+        
 
 def registrace_uz(jmeno, prijmeni, email, password, password_confirmed):
     conn = db.get_db()
