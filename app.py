@@ -66,7 +66,7 @@ def tabory_hledani():
     koho_sql = ["1=1"]
     if request.form.get("camp_girl") == "1":
         koho_sql.append("camp_girl = 1")
-    if request.form.get("camp_who_boy") == "1":
+    if request.form.get("camp_boy") == "1":
         koho_sql.append("camp_boy = 1")
     if request.form.get("camp_girl_boy") == "1":
         koho_sql.append("camp_girl_boy = 1")
