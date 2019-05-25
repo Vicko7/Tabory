@@ -7,39 +7,41 @@
             <h1>
                     Výsledky hledání dle tvých kritérií
         </h1>
+        <div class="container">
+            <h1>Výsledky hledání</h1>
+            <table>
+                {% for tabor in tabory_z_db %}
+                <tr>
+                    <td><a href="/tabory/{{ tabory.camp_id }}">{{ tabor.camp_name }}</a></td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                </tr>
+                <tr>
+                    <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                </tr>
+                <tr>
+                    <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                </tr>
+                <tr>
+                    <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                </tr>
+                <tr>
+                    <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
+                    <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                </tr>
+                {% endfor %}
             
-<div class="container">
-<h1>Výsledky hledání</h1>
-<table>
-    {% for tabor in tabory_z_db %}
-    <tr>
-        <td><a href="/tabory/{{ tabory.camp_id }}">{{ tabor.camp_name }}</a></td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-    </tr>
-    <tr>
-        <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-    </tr>
-    <tr>
-        <td><a href="/tabory/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-    </tr>
-    <tr>
-        <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-    </tr>
-    <tr>
-        <td><a href="/tabor/{{ tabor.camp_id }}">{{ tabor.camp_name }}</a></td>
-        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-    </tr>
-    {% endfor %}
+            </table>
+            
+            </div>
 
-</table>
 
-</div>
 </section>
 
 
 
 {% endblock %}
+
