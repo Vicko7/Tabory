@@ -36,110 +36,116 @@ def tabory_hledani():
     kraje = request.form.getlist("kraje")
     if "všechny" not in kraje:
         if "region_Praha" in kraje:
-            kraje_sql.append("region_Praha = 1")
+            kraje_sql.append("region_Praha = TRUE")
         if "region_jihocesky" in kraje:
-            kraje_sql.append("region_jihocesky = 1")
+            kraje_sql.append("region_jihocesky = TRUE")
         if "region_jihomoravsky" in kraje:
-            kraje_sql.append("region_jihomoravsky = 1")
+            kraje_sql.append("region_jihomoravsky = TRUE")
         if "region_karlovarsky" in kraje:
-            kraje_sql.append("region_karlovarsky = 1")
+            kraje_sql.append("region_karlovarsky = TRUE")
         if "region_vysocina" in kraje:
-            kraje_sql.append("region_vysocina = 1")
+            kraje_sql.append("region_vysocina = TRUE")
         if "region_kralovehradecky" in kraje:
-            kraje_sql.append("region_kralovehradecky = 1")
+            kraje_sql.append("region_kralovehradecky = TRUE")
         if "region_moravskoslezky" in kraje:
-            kraje_sql.append("region_moravskoslezky = 1")
+            kraje_sql.append("region_moravskoslezky = TRUE")
         if "region_olomoucky" in kraje:
-            kraje_sql.append("region_olomoucky = 1")
+            kraje_sql.append("region_olomoucky = TRUE")
         if "region_pardubicky" in kraje:
-            kraje_sql.append("region_pardubicky = 1")
+            kraje_sql.append("region_pardubicky = TRUE")
         if "region_plzensky" in kraje:
-            kraje_sql.append("region_plzensky = 1")
+            kraje_sql.append("region_plzensky = TRUE")
         if "region_stredocesky" in kraje:
-            kraje_sql.append("region_stredocesky = 1")
+            kraje_sql.append("region_stredocesky = TRUE")
         if "region_ustecky" in kraje:
-            kraje_sql.append("region_ustecky = 1")
+            kraje_sql.append("region_ustecky = TRUE")
         if "region_zlinsky" in kraje:
-            kraje_sql.append("region_zlinsky = 1")
+            kraje_sql.append("region_zlinsky = TRUE")
         podminky.append(" OR ".join(kraje_sql))
 
     koho_sql = ["1=1"]
     if request.form.get("camp_girl") == "1":
-        koho_sql.append("camp_girl = 1")
+        koho_sql.append("camp_girl = TRUE")
     if request.form.get("camp_boy") == "1":
-        koho_sql.append("camp_boy = 1")
+        koho_sql.append("camp_boy = TRUE")
     if request.form.get("camp_girl_boy") == "1":
-        koho_sql.append("camp_girl_boy = 1")
+        koho_sql.append("camp_girl_boy = TRUE")
     if request.form.get("camp_mum_daughter") == "1":
-        koho_sql.append("camp_mum_daughter = 1")
+        koho_sql.append("camp_mum_daughter = TRUE")
     if request.form.get("camp_dad_son") == "1":
-        koho_sql.append("camp_dad_son = 1")
+        koho_sql.append("camp_dad_son = TRUE")
     if request.form.get("camp_parent_kid") == "1":
-        koho_sql.append("camp_parent_kid = 1")
+        koho_sql.append("camp_parent_kid = TRUE")
     if request.form.get("camp_senior") == "1":
-        koho_sql.append("camp_senior = 1")
+        koho_sql.append("camp_senior = TRUE")
     if request.form.get("camp_single") == "1":
-        koho_sql.append("camp_single = 1")
+        koho_sql.append("camp_single = TRUE")
     if request.form.get("camp_handicapped") == "1":
-        koho_sql.append("camp_handicapped = 1")
+        koho_sql.append("camp_handicapped = TRUE")
     podminky.append(" OR ".join(koho_sql))
 
     zajmy_sql = ["1=1"]
     if request.form.get("camp_focus_classic") == "1":
-        zajmy_sql.append("camp_focus_classic = 1")
+        zajmy_sql.append("camp_focus_classic = TRUE")
     if request.form.get("camp_focus_language") == "1":
-        zajmy_sql.append("camp_focus_language = 1")
+        zajmy_sql.append("camp_focus_language = TRUE")
     if request.form.get("camp_focus_sport") == "1":
-        zajmy_sql.append("camp_focus_sport = 1")
+        zajmy_sql.append("camp_focus_sport = TRUE")
     if request.form.get("camp_focus_art") == "1":
-       zajmy_sql.append("camp_focus_art = 1")
+       zajmy_sql.append("camp_focus_art = TRUE")
     if request.form.get("camp_focus_christ") == "1":
-        zajmy_sql.append("camp_focus_christ = 1")
+        zajmy_sql.append("camp_focus_christ = TRUE")
     if request.form.get("camp_focus_science") == "1":
-        zajmy_sql.append("camp_focus_science = 1")
+        zajmy_sql.append("camp_focus_science = TRUE")
     if request.form.get("camp_focus_others") == "1":
-        zajmy_sql.append("camp_focus_others = 1")
-    zajmy_sql_where = " OR ".join(zajmy_sql)
+        zajmy_sql.append("camp_focus_others = TRUE")
+    podminky.append(" OR ".join(zajmy_sql))
 
     misto_sql = ["1=1"]
     if request.form.get("camp_international") == "1":
-        misto_sql.append("camp_international = 1")
+        misto_sql.append("camp_international = TRUE")
     if request.form.get("camp_CR") == "1":
-        misto_sql.append("camp_CR = 1")
-    misto_sql_where = " OR ".join(misto_sql)
+        misto_sql.append("camp_CR = TRUE")
+    podminky.append(" OR ".join(misto_sql))
 
     typ_sql = ["1=1"]
     if request.form.get("camp_type_urban") == "1":
-        typ_sql.append("camp_type_urban = 1")
+        typ_sql.append("camp_type_urban = TRUE")
     if request.form.get("camp_type_nature") == "1":
-        typ_sql.append("camp_type_nature = 1")
-    typ_sql_where = " OR ".join(typ_sql)
+        typ_sql.append("camp_type_nature = TRUE")
+    podminky.append(" OR ".join(typ_sql))
+    #typ_sql_where = " OR ".join(typ_sql)
 
     vek_sql = ["1=1"]
-    if request.form.get("age1") == "1":
-        vek_sql.append("age1 = 1")
-    if request.form.get("age2") == "1":
-        vek_sql.append("age2 = 1")
-    if request.form.get("age3") == "1":
-        vek_sql.append("age3 = 1")
-    if request.form.get("age4") == "1":
-        vek_sql.append("age4 = 1")
-    if request.form.get("age5") == "1":
-        vek_sql.append("age5 = 1")
-    vek_sql_where = " OR ".join(vek_sql)
-
+    vek = request.form.getlist("vek")
+    if "Nerozhoduje" not in vek:
+        if "age1" in vek:
+            vek_sql.append("age1 = 1")
+        if "age2" in vek:
+            vek_sql.append("age2 = 1")
+        if "age3" in vek:
+            vek_sql.append("age3 = 1")
+        if "age4" in vek:
+            vek_sql.append("age4 = 1")
+        if "age5" in vek:
+            vek_sql.append("age5 = 1")
+    podminky.append(" OR ".join(vek_sql))
+    
     delka_sql = ["1=1"]
-    if request.form.get("stay_day") == "1":
-        delka_sql.append("stay_day = 1")
-    if request.form.get("stay_weekend") == "1":
-        delka_sql.append("stay_weekend = 1")
-    if request.form.get("stay_week") == "1":
-       delka_sql.append("stay_week = 1")
-    if request.form.get("stay_more") == "1":
-        delka_sql.append("stay_more = 1")
-    if request.form.get("stay_2weeks") == "1":
-        delka_sql.append("stay_2weeks = 1")
-    delka_sql_where = " OR ".join(delka_sql)
+    delka = request.form.getlist("delka_pobytu")
+    if "nerozhoduje" not in delka:
+        if "stay_day" in delka:
+            delka_sql.append("stay_day = TRUE")
+        if "stay_weekend" in delka:
+            delka_sql.append("stay_weekend = TRUE")
+        if "stay_week" in delka:
+            delka_sql.append("stay_week = TRUE")
+        if "stay_more" in delka:
+            delka_sql.append("stay_more = TRUE")
+        if "stay_2weeks" in delka:
+            delka_sql.append("stay_2weeks = TRUE")
+    podminky.append(" OR ".join(delka_sql))
+   
 
     cena = request.form.get("camp_price")
     if cena == "price_to":

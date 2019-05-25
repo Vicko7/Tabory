@@ -139,50 +139,71 @@
       </div>
     </div>
     <br>
-    <!--
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <h5>
-              <bold>Ubytování</bold>
-            </h5>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="camp_focus_clasic" value="1">Cabin
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Tent
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">House
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Other
-              </label>
-            </div>
-           </div>
-          <div class="col-sm-4">
-            
-          </div>
-    
-          <div class="col-sm-4">
-          </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>
+          <bold>Ubytování</bold>
+        </h5>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="camp_focus_clasic" value="1">Chata
+          </label>
         </div>
-        <br>-->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h5>
-            <bold>Kraj</bold>
-          </h5>
-              <div>
-              <select name="kraje" class="" multiple size="6">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Stan
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">Ubytovna
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Jiné
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h5>
+          <bold>Věk</bold>
+        </h5>
+        <div>
+          <select name="vek" class="custom-select-sm">
+            <option selected>Nerozhoduje</option>
+            <option value="age1">0 až 7</option>
+            <option value="age2">8 až 15</option>
+            <option value="age3">16 až 18</option>
+            <option value="age4">19 až 54</option>
+            <option value="age5">55+</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h5>
+          <bold>Délka pobytu</bold>
+        </h5>
+        <div>
+          <select name="delka_pobytu" class="custom-select-sm">
+            <option selected>Nerozhoduje</option>
+            <option value="stay_day">1 den</option>
+            <option value="stay_weekend">víkend</option>
+            <option value="stay_week">&lt; 1 týden</option>
+            <option value="stay_more">> 1 týden</option>
+            <option value="stay_2weeks">&gt; 2 týdny</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>
+          <bold>Kraj</bold>
+        </h5>
+        <div>
+          <select name="kraje" class="" multiple size="6">
             <option selected value="všechny">Nerozhoduje</option>
             <option value="region_Praha">Praha</option>
             <option value="region_jihocesky">Jihočeský</option>
@@ -198,65 +219,39 @@
             <option value="region_ustecky">Ústecký</option>
             <option value="region_zlinsky">Zlínský</option>
           </select>
-          </div>
-        </div>
-         <div class="col-sm-4">
-          <h5>
-            <bold>Věk</bold>
-          </h5>
-          <div>
-              <select name="vek" class="custom-select-sm">
-              <option selected>Nerozhoduje</option>
-              <option value="age1">0 až 7</option>
-              <option value="age2">8 až 15</option>
-              <option value="age3">16 až 18</option>
-              <option value="age4">19 až 54</option>
-              <option value="age5">55+</option>
-            </select>
-          </div><br>
-          <div>
-            <h5>
-              <bold>Termín</bold>
-            </h5>
-            <label for="date_from">Od:</label>
-            <input type="date" id="from-date"><br>
-            <label for="date_to">Do:</label>
-            <input type="date" id="to-date">
-          </div><br>
-        </div>
-        <div class="col-sm-4">
-          <h5>
-            <bold>Délka pobytu</bold>
-          </h5>
-          <div>
-            <select name="delka_pobytu" class="custom-select-sm">
-              <option selected>Nerozhoduje</option>
-              <option value="stay_day">1 den</option>
-              <option value="stay_weekend">víkend</option>
-              <option value="stay_week">&lt; 1 týden</option>
-              <option value="stay_more">> 1 týden</option>
-              <option value="stay_2weeks">&gt; 2 týdny</option>
-            </select>
-          </div><br>
-          <h5>
-            <bold>Cena</bold>
-          </h5>
-          <div>
-            <select name="cena" class="custom-select-sm">
-              <option selected>Nerozhoduje</option>
-              <option value="price_to">0 až 2000 Kč</option>
-              <option value="price_more">2001 Kč a více</option>
-            </select><br>
-          </div>
         </div>
       </div>
 
-    <input type="submit" value="HLEDAT">
-  </form>
-</div>
+      <div class="col-sm-4">
+        <h5>
+          <bold>Termín</bold>
+        </h5>
+        <label for="date_from">Od:</label>
+        <input type="date" id="from-date"><br>
+        <label for="date_to">Do:</label>
+        <input type="date" id="to-date">
+      </div>
+      <br>
+      <div class="col-sm-4">
+        <h5>
+          <bold>Cena</bold>
+        </h5>
+        <div>
+          <select name="cena" class="custom-select-sm">
+            <option selected>Nerozhoduje</option>
+            <option value="price_to">0 až 2000 Kč</option>
+            <option value="price_more">2001 Kč a více</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <input type="submit" value="HLEDAT">
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
 </section>
-
-
 {% endblock %}
 
 
