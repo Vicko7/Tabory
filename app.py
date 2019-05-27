@@ -247,7 +247,7 @@ def registrace_org_post():
         databaze.registrace_org(organizer_ico, organizer_dic, organizer_name, organizer_address, organizer_street_num,
         organizer_psc, organizer_city, organizer_phone, organizer_web, organizer_contact_person, organizer_description,
         organizer_username, organizer_password, organizer_password_confirmed, organizer_email)
-    return render_template("success.html")
+    return render_template("success.html", organizer_z_db = data)
 
 @app.route('/registrace_uz', methods=["GET"])
 def registrace_uz():

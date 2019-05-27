@@ -5,10 +5,41 @@
 <div class="jumbotron">
         <header>
             <h1>
-                    Výsledky hledání dle tvých kritérií
+                    Výsledky hledání dle zadaných kritérií
         </h1>
         <div class="container">
-            <h1>Výsledky hledání</h1>
+            <form method="GET">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Název tábora</th>
+                            <th scope="col">Datum</th>
+                            <th scope="col">Popis</th>
+                            <th scope="col">Kategorie</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Kraj</th>
+                            <th scope="col">Organizator</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                            {% for tabor in tabory_z_db %}
+                        <tr>
+                                <td><a href="/tabory/{{ tabory.camp_id }}">{{ tabor.camp_name }}</td>
+                                <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
+                                <td>{{ tabor.camp_programm }}</td>
+                                <td>{{ tabor.camp_focus_% }}</td>
+                                <td>{{ tabor.camp_price }}</td>
+                                <td>{{ tabor.camp_region% }}</td>
+                            {% for org in organizer_z_db %}
+                                <td>{{ org.organizer_name }}</td>
+                        </tr>
+                        {% endfor %}
+    
+                    </tbody>
+                </table>
+            </form>
+            
             <table>
                 {% for tabor in tabory_z_db %}
                 <tr>
