@@ -121,5 +121,32 @@ def registrace_praha(Praha1, Praha2, Praha3, Praha4, Praha5, Praha6, Praha7, Pra
 #vykonej ten dotaz
     cur.execute(sql)
 
+ def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_programm, camp_focus_classic,
+     camp_focus_language, camp_focus_sport, camp_focus_sport, camp_focus_art,camp_focus_christ, camp_focus_science,
+     camp_focus_others, organizer_name):
+    sql = """SELECT c.camp_id
+                    , c.camp_name
+                    , c.camp_date_start
+                    , c.camp_date_finish
+                    , c.camp_programm
+                    , c.camp_focus_%
+                    , c.camp_price
+                    , c.camp_region%
+                    , org.organizer_name
+                    FROM camp as c
+                    LEFT JOIN  databaze_org AS org ON c.camp_id = org.camp_id
+                    ORDER BY c.camp_data_start DESC"""
+    conn = get_db()
+    try:
+        cur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+        cur.execute(sql)
+        camp_table = cur.fetchall()
+        conn.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+    return camp_table
 
     
