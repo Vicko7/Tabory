@@ -121,17 +121,41 @@ def registrace_praha(Praha1, Praha2, Praha3, Praha4, Praha5, Praha6, Praha7, Pra
 #vykonej ten dotaz
     cur.execute(sql)
 
- def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_programm, camp_focus_classic,
-     camp_focus_language, camp_focus_sport, camp_focus_sport, camp_focus_art,camp_focus_christ, camp_focus_science,
-     camp_focus_others, organizer_name):
+#, c.camp_focus_% .. camp_focus_classic, camp_focus_language, camp_focus_sport, camp_focus_sport, camp_focus_art,camp_focus_christ, camp_focus_science, camp_focus_others
+
+def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
+    camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_price, region_Praha, region_Jihocesky, region_Jihomoravsky, region_Karlovarsky, region_Vysocina,
+    region_Kralovehradecky, region_Liberecky, region_Moravskoslezky, region_Olomoucky, region_Pardubicky,
+    region_Plzensky, region_Stredocesky, region_Ustecky, region_Zlinsky, organizer_name):
+    
     sql = """SELECT c.camp_id
                     , c.camp_name
                     , c.camp_date_start
                     , c.camp_date_finish
                     , c.camp_programm
-                    , c.camp_focus_%
+                    , c.camp_focus_classic
+                    , c.camp_focus_language
+                    , c.camp_focus_sport
+                    , c.camp_focus_sport
+                    , c.camp_focus_art
+                    , c.camp_focus_christ
+                    , c.camp_focus_science
+                    , c.camp_focus_others
                     , c.camp_price
-                    , c.camp_region%
+                    , c.region_Praha
+                    , c.region_Jihocesky
+                    , c.region_Jihomoravsky
+                    , c.region_Karlovarsky
+                    , c.region_Vysocina
+                    , c.region_Kralovehradecky
+                    , c.region_Liberecky
+                    , c.region_Moravskoslezky
+                    , c.region_Olomoucky
+                    , c.region_Pardubicky
+                    , c.region_Plzensky
+                    , c.region_Stredocesky
+                    , c.region_Ustecky
+                    , c.region_Zlinsky
                     , org.organizer_name
                     FROM camp as c
                     LEFT JOIN  databaze_org AS org ON c.camp_id = org.camp_id

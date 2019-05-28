@@ -25,7 +25,10 @@ def index():
 
 @app.route('/tabory', methods=["GET"])
 def tabory():
-    return render_template ("tabory.html")
+    camp_table = databaze.tabulka_vypis()
+    return render_template ("tabory.html",
+    camp_table=camp_table
+    )
 
 @app.route('/tabory', methods=["POST"])
 def tabory_hledani():
