@@ -82,31 +82,45 @@ def registrace_uz(jmeno, prijmeni, email, password, password_confirmed):
 #vykonej ten dotaz
     cur.execute(sql)
 
-def registrace_camp(type_urban, type_nature, date, note, price, price_note, equipment, web_organizer,
-    web_camp, camp_name, focus_classic, focus_language, focus_sport, focus_art, focus_christ, focus_science, focus_others,
-    country_CR, country_int, who_girl, who_boy, who_girl_boy, who_mum_daughter, who_dad_son,who_parent_kid,                      
-    who_senior, who_single, who_handicapped, accommodation_cabin, accommodation_tent, accommodation_house,
-    accommodation_other, age_1, age_2, age_3, age_4, age_5, stay_day, stay_weekend, stay_week, stay_more, 
-    stay_other, region_Praha, region_Jihocesky, region_Jihomoravsky, region_Karlovarsky, region_Vysocina,
-    region_Kralovehradecky, region_Liberecky, region_Moravskoslezky, region_Olomoucky, region_Pardubicky,
-    region_Plzensky, region_Stredocesky, region_Ustecky, region_Zlinsky):
-
-#pripojeni k databazi a zavolam import db vkladani tabora
-    conn = db.get_db()
+def registrace_camp(camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
+            camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
+            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy,
+            camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, accommodation_cabin,
+            accommodation_tent, accommodation_house, accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend,
+            stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
+            region_kralovehradecky, region_liberecky, region_moravskoslezky, region_olomoucky, region_pardubicky,
+            region_plzensky, region_stredocesky, region_ustecky, region_zlinsky):
 #sql dotaz na import
-    sql = "INSERT INTO databaze_camp VALUES " + ' '.join([type_urban, type_nature, date, note, price, price_note, equipment, web_organizer,
-            web_camp, camp_name, focus_classic, focus_language, focus_sport, focus_art, focus_christ, focus_science, focus_others,
-            country_CR, country_int, who_girl, who_boy, who_girl_boy, who_mum_daughter, who_dad_son,who_parent_kid,                      
-            who_senior, who_single, who_handicapped, accommodation_cabin, accommodation_tent, accommodation_house,
-            ccommodation_other, age_1, age_2, age_3, age_4, age_5, stay_day, stay_weekend, stay_week, stay_more, 
-            stay_other, region_Praha, region_Jihocesky, region_Jihomoravsky, region_Karlovarsky, region_Vysocina,
-            region_Kralovehradecky, region_Liberecky, region_Moravskoslezky, region_Olomoucky, region_Pardubicky,
-            region_Plzensky, region_Stredocesky, region_Ustecky, region_Zlinsky])
-    print(sql)
-    cur = conn.cursor()
-#vykonej ten dotaz
-    cur.execute(sql)
-
+    sql = """INSERT INTO camp (camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
+            camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
+            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy,
+            camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, accommodation_cabin,
+            accommodation_tent, accommodation_house, accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend,
+            stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
+            region_kralovehradecky, region_liberecky, region_moravskoslezky, region_olomoucky, region_pardubicky,
+            region_plzensky, region_stredocesky, region_ustecky, region_zlinsky)
+            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s%s, %s, %s, %s, %s, %s, %s, %s, %s, %s%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+            %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING camp_id;"""
+    #pripojeni k databazi a zavolam import db vkladani tabora
+    c_id = None
+    try:
+        cur = conn.cursor()
+        cur.execute(sql, (camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
+            camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport, camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy, camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid,                      
+            camp_senior, camp_single, camp_handicapped, accommodation_cabin, accommodation_tent, accommodation_house,
+            accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend, stay_week, stay_more, stay_2weeks,
+            region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
+            region_kralovehradecky, region_liberecky, region_moravskoslezky, region_olomoucky, region_pardubicky,
+            region_plzensky, region_stredocesky, region_ustecky, region_zlinsky))
+        c_id = cur.fetchone()[0]
+        conn.commit()
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+    return c_id
 
 def registrace_praha(Praha1, Praha2, Praha3, Praha4, Praha5, Praha6, Praha7, Praha8, Praha9, Praha10, Praha11,
     Praha12, Praha13, Praha14, Praha15, Praha16, Praha17, Praha18, Praha19, Praha20, Praha21, Praha22):
@@ -121,21 +135,14 @@ def registrace_praha(Praha1, Praha2, Praha3, Praha4, Praha5, Praha6, Praha7, Pra
 #vykonej ten dotaz
     cur.execute(sql)
 
-#, c.camp_focus_% .. camp_focus_classic, camp_focus_language, camp_focus_sport, camp_focus_sport, camp_focus_art,camp_focus_christ, camp_focus_science, camp_focus_others
-
-def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
-    camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_price, region_Praha, region_Jihocesky, region_Jihomoravsky, region_Karlovarsky, region_Vysocina,
-    region_Kralovehradecky, region_Liberecky, region_Moravskoslezky, region_Olomoucky, region_Pardubicky,
-    region_Plzensky, region_Stredocesky, region_Ustecky, region_Zlinsky, organizer_name):
-    
+def tabulka_vypis():
     sql = """SELECT c.camp_id
-                    , c.camp_name
+                    , c.camp_name 
                     , c.camp_date_start
                     , c.camp_date_finish
                     , c.camp_programm
                     , c.camp_focus_classic
                     , c.camp_focus_language
-                    , c.camp_focus_sport
                     , c.camp_focus_sport
                     , c.camp_focus_art
                     , c.camp_focus_christ
@@ -143,23 +150,23 @@ def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_program
                     , c.camp_focus_others
                     , c.camp_price
                     , c.region_Praha
-                    , c.region_Jihocesky
-                    , c.region_Jihomoravsky
-                    , c.region_Karlovarsky
-                    , c.region_Vysocina
-                    , c.region_Kralovehradecky
-                    , c.region_Liberecky
-                    , c.region_Moravskoslezky
-                    , c.region_Olomoucky
-                    , c.region_Pardubicky
-                    , c.region_Plzensky
-                    , c.region_Stredocesky
-                    , c.region_Ustecky
-                    , c.region_Zlinsky
+                    , c.region_jihocesky
+                    , c.region_jihomoravsky
+                    , c.region_karlovarsky
+                    , c.region_vysocina
+                    , c.region_kralovehradecky
+                    , c.region_liberecky
+                    , c.region_moravskoslezky
+                    , c.region_olomoucky
+                    , c.region_pardubicky
+                    , c.region_plzensky
+                    , c.region_stredocesky
+                    , c.region_ustecky
+                    , c.region_zlinsky
                     , org.organizer_name
                     FROM camp as c
                     LEFT JOIN  databaze_org AS org ON c.camp_id = org.camp_id
-                    ORDER BY c.camp_data_start DESC"""
+                    ORDER BY c.camp_date_start DESC"""
     conn = get_db()
     try:
         cur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
@@ -170,7 +177,7 @@ def tabulka_vypis(camp_id, camp_name, date_start, camp_date_finish, camp_program
         print(error)
     finally:
         if conn is not None:
-            conn.close()
+           conn.close()
     return camp_table
 
     

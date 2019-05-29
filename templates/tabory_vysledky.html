@@ -21,15 +21,37 @@
                 </thead>
                 <tbody>
 
-                    {% for tabor in tabory_z_db %}
+                    {% for x in tabory_z_db %}
                     <tr>
-                        <td><a href="/tabory/{{ tabory.camp_id }}">{{ tabor.camp_name }}</td>
-                        <td>{{ tabor.camp_date_start }} - {{ tabor.camp_date_finish }}</td>
-                        <td>{{ tabor.camp_programm }}</td>
-                        <td>{{ tabor.camp_focus_% }}</td>
-                        <td>{{ tabor.camp_price }}</td>
-                        <td>{{ tabor.camp_region% }}</td>
-                        <td>{{ org.organizer_name }}</td>
+                        <td><a href="{{ x.camp_web }}" target='_blank'>{{ x.camp_name }}</td>
+                        <td>{{ x.camp_date_start }} - {{ x.camp_date_finish }}</td>
+                        <td>{{ x.camp_programm }}</td>
+                        <td>
+                            <ul>
+                            {% if x.camp_focus_classic %}<li>Klasický</li>{% endif %}
+                            {% if x.camp_focus_language %}<li>Jazykový</li>{% endif %}
+                            {% if x.camp_focus_sport %}<li>Sportovní</li>{% endif %}
+                            {% if x.camp_focus_art %}<li>Umělecký</li>{% endif %}
+                            {% if x.camp_focus_christ %}<li>Církevní</li>{% endif %}
+                            {% if x.camp_focus_science %}<li>Věda a IT</li>{% endif %}
+                            {% if x.camp_focus_other %}<li>Jiné</li>{% endif %}
+                            </ul>
+                        </td>
+                        <td>{{ x.camp_price }}</td>
+                        <td>{% if x.region_praha %}Praha {{ x.region_praha }}{% endif %}
+                            {% if x.region_jihocesky %}Jihočeský{% endif %}
+                            {% if x.region_jihomoravsky %}Jihomoravsky{% endif %}
+                            {% if x.region_karlovarsky %}Karlovarský{% endif %}
+                            {% if x.region_vysocina %}Vysočina{% endif %}
+                            {% if x.region_kralovehradecky %}Kralovéhradecký{% endif %}
+                            {% if x.region_moravskoslezky %}Moravskoslezký{% endif %}
+                            {% if x.region_olomoucky %}Olomoucký{% endif %}
+                            {% if x.region_plzensky %}Plzeňský{% endif %}
+                            {% if x.region_stredocesky %}Středočeský{% endif %}
+                            {% if x.region_ustecky %}Ústecký{% endif %}
+                            {% if x.region_zlinsky %}Zlínský{% endif %}
+                        </td>
+                        <td>{{ x.organizer_name }}</td>
                     </tr>
                     {% endfor %}
                </tbody>
@@ -39,3 +61,4 @@
 </section>
 
 {% endblock %}
+
