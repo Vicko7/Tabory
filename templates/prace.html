@@ -6,14 +6,42 @@
     <div class="container">
         <H4>Práce na táborech - NABÍDKA, POPTÁVKA</H4>
 
-        <form method="POST" action="">
+        <form class="well form-horizontal" method="post" id="contact_form">
+            <fieldset>
 
-            <p>Vložte popis práce, kterou nabízite nebo poptávate včetně kontaktu na sebe.</p> <br>
-            Nabídka:<br> <input type="text" name="nabidka" class="custom-select-md"/> <input type="submit">
-            <br>
-            Poptávka:<br><input type="text" name="poptavka" /> <input type="submit">
-            <br>
-            
+                <p>Vložte popis práce, kterou nabízite nebo poptávate včetně kontaktu na sebe.</p> <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>
+                            <bold>Typ</bold>
+                        </h5>
+                        <div>
+                            <select name="delka_pobytu" class="custom-select-sm">
+                                <option selected value="offer">Nabídka</option>
+                                <option value="ask">Poptávka</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h5>
+                            <bold>Popis</bold>
+                            <h5>
+                                <input type="text" name="popis_prace" />
+                                <br>
+                                <br>
+                                <input type="submit">
+                                <br>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <h5><bold>Termín</bold></h5><h8>(Zadání datumu je nepovinné.)</h8>
+                        <br>
+                        <label for="date_from">Od:</label> <input type="date" id="from-date"><br>
+                        <label for="date_to">Do:</label> <input type="date" id="to-date"><br>
+                    </div>
+                </div>
+            </fieldset>
         </form>
 
         <div class="table-responsive-lg">
@@ -21,9 +49,9 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Pořadí</th>
                             <th scope="col">Typ</th>
                             <th scope="col">Popis</th>
+                            <th scope="col">Datum</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,14 +61,14 @@
                             <td>{{ x.job_id }}</td>
                             <td>{{ x.job_date_type }}</td>
                             <td>{{ x.job_programm }}</td>
-                            <td>{{ x.job_contact}}</td>
+
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </table>
         </div>
-
     </div>
+</section>
 
-    {% endblock %}
+{% endblock %}
