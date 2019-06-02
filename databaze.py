@@ -182,15 +182,15 @@ def tabulka_vypis():
 
 def registrace_job (typ_nabidka, typ_poptavka, date_start, date_finish, text):
     conn = db.get_db()
-#sql dotaz na import
-    sql = """INSERT INTO job (typ_nabidka, typ_poptavka, date_start, date_finish, text)
-            VALUES(%s, %s, %s, %s, %s,) RETURNING job_id;"""
-    #pripojeni k databazi a zavolam import db vkladani tabora
+    #sql dotaz na import
+    sql = """INSERT INTO JOB (typ_nabidka, typ_poptavka, date_start, date_finish, text)
+            VALUES(%s, %s, %s, %s, %s) RETURNING job_id;"""
+    #pripojeni k databazi a zavolam import db vkladani job(prace)
     j_id = None
     try:
         cur = conn.cursor()
         cur.execute(sql, (typ_nabidka, typ_poptavka, date_start, date_finish, text))
-        c_id = cur.fetchone()[0]
+        j_id = cur.fetchone()[0]
         conn.commit()
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
@@ -201,7 +201,7 @@ def registrace_job (typ_nabidka, typ_poptavka, date_start, date_finish, text):
     return j_id
 
 def tabulka_vypis_job():
-        sql = """SELECT job_id
+    sql = """SELECT job_id
                     , typ_nabidka
                     , typ_poptavka
                     , date_start
