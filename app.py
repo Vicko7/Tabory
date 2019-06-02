@@ -196,7 +196,8 @@ def vloz_praci():
         date_start = request.form['date_start']
         date_finish = request.form['date_finish']
         databaze.registrace_prace(typ_nabidka, typ_poptavka, text, date_start, date_finish)
-    return render_template("success.html")
+    return render_template ("prace.html", job_z_db = data)
+   
 
     
 @app.route('/onas')
@@ -258,7 +259,7 @@ def registrace_uz_post():
         password_confirmed = request.form['password_confirmed']
         databaze.registrace_uz(jmeno, prijmeni, email, password, password_confirmed)
     return render_template("success.html")
-
+  
 
 @app.route('/success')
 def success():

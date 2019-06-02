@@ -17,8 +17,8 @@
                         </h5>
                         <div>
                             <select name="typ" class="custom-select-sm">
-                                <option selected value="offer">Nabídka</option>
-                                <option value="ask">Poptávka</option>
+                                <option selected value="typ_nabidka">Nabídka</option>
+                                <option value="typ_poptavka">Poptávka</option>
                             </select>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         <h5>
                             <bold>Popis</bold>
                             <h5>
-                                <input type="text" name="prace" />
+                                <input type="text" name="text" />
                                 <br>
                                 <br>
                                 <input type="submit">
@@ -37,8 +37,8 @@
 
                         <h5><bold>Termín</bold></h5><h8>(Zadání datumu je nepovinné.)</h8>
                         <br>
-                        <label for="date_from">Od:</label> <input type="date" id="from-date"><br>
-                        <label for="date_to">Do:</label> <input type="date" id="to-date"><br>
+                        <label for="date_start">Od:</label> <input type="date" id="from-date"><br>
+                        <label for="date_finish">Do:</label> <input type="date" id="to-date"><br>
                     </div>
                 </div>
             </fieldset>
@@ -59,8 +59,8 @@
                         {% for x in job_z_db %}
                         <tr>
                             <td>{{ x.job_id }}</td>
-                            <td>{{ x.job_date_type }}</td>
-                            <td>{{ x.camp_date_start }} - {{ x.camp_date_finish }}</td>
+                            <td>{{ x.type }}</td>
+                            <td>{{ x.date_start }} - {{ x.date_finish }}</td>
                            
 
                         </tr>
