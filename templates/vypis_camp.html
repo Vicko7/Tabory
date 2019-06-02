@@ -1,0 +1,307 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<section class="features3 cid-rpUYdNoG90" id="features3-5">
+    <div class="container">
+
+        <form class="well form-horizontal" method="post" id="contact_form">
+            <fieldset>
+                <h4>Zadej tábor<br></h4>
+                <br>
+                <h5>
+                    <bold>Pro koho<br></bold>
+                </h5>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_girl" value="1">jen pro
+                                holky<br></label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_boy" value="1">jen pro
+                                kluky<br></label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_girl_boy" value="1">pro holky
+                                i
+                                kluky<br></label>
+                        </div><br>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_parent_kid" value="1">rodiče
+                                s dětmi<br>
+                            </label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_mam_daughter" value="1">máma
+                                a dcera<br>
+                            </label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_dad_son" value="1">táta a
+                                syn<br>
+                            </label>
+                        </div><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_single"
+                                    value="1">nezadaní<br>
+                            </label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_senior" value="1">senioři<br>
+                            </label>
+                        </div><br>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="camp_handicapped"
+                                    value="1">handicapovaní<br>
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Zájmy</bold>
+                </h5>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_classic" value="1">Klasický
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Jazykový
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">Sportovní
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Umělecký
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_christ" value="1">Církevní
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_science" value="1">Věda a IT
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_others" value="1">Jiné
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Typ</bold>
+                </h5>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_type_urban" value="1">Příměstský<br>
+                    </label>
+                </div><br>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_type_nature" value="1">Pobytový<br>
+                    </label><br>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Místo</bold>
+                </h5>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_CR" value="1">ČR
+                    </label>
+                </div><br>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_international" value="1">Mezinárodní
+                    </label>
+                </div><br>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Ubytování</bold>
+                </h5>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_clasic" value="1">Chata
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Stan
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">Ubytovna
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Jiné
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Věk</bold>
+                </h5>
+                <div>
+                    <select name="vek" class="custom-select-sm">
+                        <option selected>Nerozhoduje</option>
+                        <option value="age1">0 až 7</option>
+                        <option value="age2">8 až 15</option>
+                        <option value="age3">16 až 18</option>
+                        <option value="age4">19 až 54</option>
+                        <option value="age5">55+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Délka pobytu</bold>
+                </h5>
+                <div>
+                    <select name="delka_pobytu" class="custom-select-sm">
+                        <option selected>Nerozhoduje</option>
+                        <option value="stay_day">1 den</option>
+                        <option value="stay_weekend">víkend</option>
+                        <option value="stay_week">&lt; 1 týden</option>
+                        <option value="stay_more">> 1 týden</option>
+                        <option value="stay_2weeks">&gt; 2 týdny</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Kraj</bold>
+                </h5>
+                <div>
+                    <select name="kraje" class="" multiple size="6">
+                        <option selected value="všechny">Nerozhoduje</option>
+                        <option value="region_Praha">Praha</option>
+                        <option value="region_jihocesky">Jihočeský</option>
+                        <option value="region_jihomoravsky">Jihomorvský</option>
+                        <option value="region_karlovarsky">Karlovarský</option>
+                        <option value="region_vysocina">Vysočina</option>
+                        <option value="region_kralovehradecky">Kralovéhradecký</option>
+                        <option value="region_moravskoslezky">Moravskoslezký</option>
+                        <option value="region_olomoucky">Olomoucký</option>
+                        <option value="region_pardubicky">Pardubický</option>
+                        <option value="region_plzensky">Plzeňský</option>
+                        <option value="region_stredocesky">Středočeský</option>
+                        <option value="region_ustecky">Ústecký</option>
+                        <option value="region_zlinsky">Zlínský</option>
+                        <option disabled>--</option>
+                        <option value="1">Praha 1</option>
+                        <option value="2">Praha 2</option>
+                        <option value="3">Praha 3</option>
+                        <option value="4">Praha 4</option>
+                        <option value="5">Praha 5</option>
+                        <option value="6">Praha 6</option>
+                        <option value="7">Praha 7</option>
+                        <option value="8">Praha 8</option>
+                        <option value="9">Praha 9</option>
+                        <option value="10">Praha 10</option>
+                        <option value="11">Praha 11</option>
+                        <option value="12">Praha 12</option>
+                        <option value="13">Praha 13</option>
+                        <option value="14">Praha 14</option>
+                        <option value="15">Praha 15</option>
+                        <option value="10">Praha 16</option>
+                        <option value="11">Praha 17</option>
+                        <option value="12">Praha 18</option>
+                        <option value="13">Praha 19</option>
+                        <option value="14">Praha 20</option>
+                        <option value="15">Praha 21</option>
+                        <option value="12">Praha 22</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Termín</bold>
+                </h5>
+                <label for="date_from">Od:</label>
+                <input type="date" id="from-date"><br>
+                <label for="date_to">Do:</label>
+                <input type="date" id="to-date">
+            </div>
+            <br>
+            <div class="col-sm-4">
+                <h5>
+                    <bold>Cena</bold>
+                </h5>
+                <div>
+                    <select name="cena" class="custom-select-sm">
+                        <option selected>Nerozhoduje</option>
+                        <option value="price_to">0 až 2000 Kč</option>
+                        <option value="price_more">2001 Kč a více</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Registruj tábor">
+                </div>
+            </div>
+        </div>
+        </fieldset>
+        </form>
+    </div>
+</section>
+
+<br>
+
+{% endblock %}
+
+
+<!--<div class="btn-group" role="group">
+                             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Praha
+                             </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <a class="dropdown-item" href="#">Praha 1</a>
+                                        <a class="dropdown-item" href="#">Praha 2</a>
+                                        <a class="dropdown-item" href="#">Praha 3</a>
+                                        <a class="dropdown-item" href="#">Praha 4</a>
+                                        <a class="dropdown-item" href="#">Praha 5</a>
+                                        <a class="dropdown-item" href="#">Praha 6</a>
+                                        <a class="dropdown-item" href="#">Praha 7</a>
+                                        <a class="dropdown-item" href="#">Praha 8</a>-->

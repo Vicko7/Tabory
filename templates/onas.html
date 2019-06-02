@@ -1,101 +1,100 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
-
 <section class="features3 cid-rpUYdNoG90" id="features3-5">
-
     <div class="container">
-        <H2>O nás</H2>
-        <p> Web hledamtabor.cz má sloužit všem, kteří už nechtějí strácet čas s hledáním tábora pro svoje děti,
-            pro rodiče a dítě, rodinné tábory, tábory pro nezadané, hendikepované, pro seniory nebo rádi by šli na zkušenou jako dobrovolníci.
-            Zároveň si na webu můžete najít práci na táboře nebo poptat zájemnce o tuto práci.
-            Tento web vzniká jako projekt kurzu Digitální akademie - Datová analýza, který organizují holky z <a
-                href="https://www.czechitas.cz" target_blank>Czechitas.</a>
-            Mentorem projektu je Jakub Balada z firmy <a href="https://Apify.com" target _blank>Apify</a>, který nám pomohl se scrapingom dat.
-            Obrovské díky patří Dan Vrátil a Iva Fischerová z firmy <a href="https://www.avast.com/cs-cz/index#pc" target _blank>AVAST</a> bez kterých by aplikace nežila.
-            Cílem webu je na jednom místě jednoduchou formou propojit zájemce a pořadatele o tyto aktivity a poskytnout uživatelům přehlednou a intuitivní aplikaci pro všechny věkové kategorie.
-            A zároveň rozšířit povědomí o dobrovolnictví a programech pro dobrovolníky, kde můžete svůj volný čas zdarma
-            věnovat také pro dobro věci doma, či v zahraničí a obohatit jak sebe, tak druhé. V prvotní fázy projektu
-            jsou nabízené tábory screpované z jiných zdrojů.
-            Souběžne si, ale organizátoři můžou své tábory i nabídky, či poptávky práce vkládat i sami. Koncový uživatel
-            může pohodlně vyhledávat tábory dle svých kritérií nebo vkládat své poptávky na práci na tábořě.
-        </p>
+        <H4>O nás</H4>
+        Web hledamtabor.cz má sloužit všem, kteří už nechtějí strácet čas s hledáním tábora pro svoje děti,
+        pro sebe a dítě, pro seniory, pro nezadané, hendikepované nebo pro ty, co by rádi šli na zkušenou jako
+        dobrovolníci.
+        Zároveň si na webu můžete najít práci na táboře nebo poptat zájemnce o tuto práci.<br>
+        <br>Tento web vzniká jako projekt kurzu Digitální akademie, který organizují holky z <a
+            href="https://www.czechitas.cz" target_blank>Czechitas.</a>
+        Mentorem projektu je Jakub Balada z firmy <a href="https://Apify.com" target _blank>Apify</a>, který nám pomohl
+        se scrapingom dat.
+        Velké díky patří také koučům Danovi Vrátilovi a Ivě Fischerové z firmy <a
+            href="https://www.avast.com/cs-cz/index#pc" target _blank>AVAST</a> a mnohým dalším, kteří nám radili po
+        technické stránce a bez nich by aplikace nežila z pohledu backendové části.<br>
+        <br>Cílem webu je na jednom místě jednoduchou formou propojit zájemce a pořadatele o tyto aktivity a poskytnout
+        uživatelům přehlednou a intuitivní aplikaci pro všechny věkové kategorie.
+        A zároveň pro starší, nabídnout i alternativu táborů a rozšířit tak povědomí o dobrovolnictví a programech pro
+        dobrovolníky, kde můžete svůj volný čas věnovat pro dobro věci v tuzemsku, či v zahraničí a obohatit jak sebe,
+        tak druhé. V prvotní fázy projektu
+        jsou nabízené tábory čerpány z internetu. Souběžne si organizátoři táborů mohou své tábory vkládat sami, stejně
+        tak i nabídky, či poptávky práce v souvislosti s táborem. Koncový uživatel
+        může pohodlně vyhledávat tábory dle svých kritérií nebo vkládat své poptávky na práci na tábořě nebo v mapě
+        táborů vyhledat ten "svůj" tábor a zároveň vidět kvalitu ovzduší daného místa.
     </div>
 
-
-
-    <section class="features3 cid-rpUYdNoG90" id="features3-5">
-
-        <div class="container">
-            <div class="media-container-row">
-                <div class="card p-3 col-12 col-md-6 col-lg-4">
-                    <div class="card-wrapper">
-                        <div class="card-img">
-                            <img src="{{ url_for('static', filename='background1.jpg') }}" alt="tabory">
-                        </div>
-                        <div class="mbr-section-btn text-center">
-                            <a href="/tabory" class="btn btn-primary display-4">
-                                TÁBORY
-                            </a>
-                        </div>
-                        <div class="card-box">
-                            <!--<h4 class="card-title mbr-fonts-style display-7">
+    <!--<section class="features3 cid-rpUYdNoG90" id="features3-5">-->
+    <div class="container">
+        <div class="media-container-row">
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='background1.jpg') }}" alt="tabory">
+                    </div>
+                    <div class="mbr-section-btn text-center">
+                        <a href="/tabory" class="btn btn-primary display-4">
+                            TÁBORY
+                        </a>
+                    </div>
+                    <div class="card-box">
+                        <!--<h4 class="card-title mbr-fonts-style display-7">
                                     TÁBORY</h4>-->
-                            <p class="mbr-text mbr-fonts-style display-7">
-                                Hledáš tábor pro děti, mladé lidi, pro rodiče s dětmi, pro hendikepované, pro nezadané
-                                nebo pro seniory? </p>
-                        </div>
-
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            Hledáš tábor pro děti, mladé lidi, pro rodiče s dětmi, pro hendikepované, pro nezadané
+                            nebo pro seniory? </p>
                     </div>
+
                 </div>
-
-                <div class="card p-3 col-12 col-md-6 col-lg-4">
-                    <div class="card-wrapper">
-                        <div class="card-img">
-                            <img src="{{ url_for('static', filename='background2.jpg') }}" alt="dobrovolnictvi">
-                        </div>
-                        <div class="mbr-section-btn text-center">
-                            <a href="/dobrovolnictvi" class="btn btn-primary display-4">
-                                DOBROVOLNICTVÍ
-                            </a>
-                        </div>
-                        <div class="card-box">
-                            <!--<h4 class="card-title mbr-fonts-style display-7">
-                                    DOBROVONICTVÍ</h4>-->
-                            <p class="mbr-text mbr-fonts-style display-7">
-                                Máš chuť pomáhat? Chceš vytvářet skutečné hodnoty? Chceš zkusit zajímavou práci?
-                                Procestovat svět?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card p-3 col-12 col-md-6 col-lg-4">
-                    <div class="card-wrapper">
-                        <div class="card-img">
-                            <img src="{{ url_for('static', filename='background3.jpg') }}" alt="prace">
-                        </div>
-                        <div class="mbr-section-btn text-center">
-                            <a href="/prace" class="btn btn-primary display-4">
-                                PRÁCE
-                            </a>
-                        </div>
-                        <div class="card-box">
-                            <!--<h4 class="card-title mbr-fonts-style display-7">
-                                    PRÁCE</h4>-->
-                            <p class="mbr-text mbr-fonts-style display-7">
-                                Hledáš nebo nabíziš práci na táboře? Chceš získat zkušenosti nebo se naopak o ně
-                                podělit?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='background2.jpg') }}" alt="dobrovolnictvi">
+                    </div>
+                    <div class="mbr-section-btn text-center">
+                        <a href="/dobrovolnictvi" class="btn btn-primary display-4">
+                            DOBROVOLNICTVÍ
+                        </a>
+                    </div>
+                    <div class="card-box">
+                        <!--<h4 class="card-title mbr-fonts-style display-7">
+                                    DOBROVONICTVÍ</h4>-->
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            Máš chuť pomáhat? Chceš vytvářet skutečné hodnoty? Chceš zkusit zajímavou práci?
+                            Procestovat svět?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='background3.jpg') }}" alt="prace">
+                    </div>
+                    <div class="mbr-section-btn text-center">
+                        <a href="/prace" class="btn btn-primary display-4">
+                            PRÁCE
+                        </a>
+                    </div>
+                    <div class="card-box">
+                        <!--<h4 class="card-title mbr-fonts-style display-7">
+                                    PRÁCE</h4>-->
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            Hledáš nebo nabíziš práci na táboře? Chceš získat zkušenosti nebo se naopak o ně
+                            podělit?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-    </section>
+    </div>
 
     <section class="counters1 counters cid-rpVurTS1q5" id="counters1-9">
 
@@ -122,9 +121,6 @@
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-8">
                                     Příměstské tábory
                                 </h4>
-                                <!--<p class="mbr-content-text mbr-fonts-style display-7">
-                                                Mobirise give you the freedom to develop as many websites as you like given the fact that it is desktop app. Mobirise is the perfect gide.
-                                            </p>-->
                             </div>
                         </div>
                     </div>
@@ -161,9 +157,6 @@
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-8">
                                     Nabídky práce
                                 </h4>
-                                <!--<p class="mbr-content-text mbr-fonts-style display-7">
-                                                    One of Bootstrap's big point is responsiveness and obirise male effective use of this by genereating highly responsive website for you.
-                                            </p>-->
                             </div>
                         </div>
                     </div>
@@ -172,5 +165,4 @@
         </div>
     </section>
 </section>
-
 {% endblock %}

@@ -4,8 +4,9 @@
 <section class="features3 cid-rpUYdNoG90" id="features3-5">
   <div class="container">
     <form method="POST" action="/tabory">
-      <h4>Vyber si tábor dle svých kritérií<br></h4>
+      <h4>Vyberte si tábor dle svých kritérií<br></h4>
       <br>
+
       <h5>
         <bold>Pro koho<br></bold>
       </h5>
@@ -146,22 +147,22 @@
         </h5>
         <div class="form-check-inline">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="camp_focus_clasic" value="1">Chata
+            <input type="checkbox" class="form-check-input" name="accommodation_cabin" value="1">Chata
           </label>
         </div>
         <div class="form-check-inline">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Stan
+            <input type="checkbox" class="form-check-input" name="accommodation_camp" value="1">Stan
           </label>
         </div>
         <div class="form-check-inline">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">Ubytovna
+            <input type="checkbox" class="form-check-input" name="accommodation_house" value="1">Ubytovna
           </label>
         </div>
         <div class="form-check-inline">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Jiné
+            <input type="checkbox" class="form-check-input" name="accommodation_other" value="1">Jiné
           </label>
         </div>
       </div>
@@ -211,7 +212,7 @@
             <option value="region_karlovarsky">Karlovarský</option>
             <option value="region_vysocina">Vysočina</option>
             <option value="region_kralovehradecky">Kralovéhradecký</option>
-            <option value="region_moravskoslezky">Moravskoslezký</option>
+            <option value="region_moravskoslezky">Moravskoskolezký</option>
             <option value="region_olomoucky">Olomoucký</option>
             <option value="region_pardubicky">Pardubický</option>
             <option value="region_plzensky">Plzeňský</option>
@@ -249,9 +250,9 @@
         <h5>
           <bold>Termín</bold>
         </h5>
-        <label for="date_from">Od:</label>
+        <label for="date_start">Od:</label>
         <input type="date" id="from-date"><br>
-        <label for="date_to">Do:</label>
+        <label for="date_finish">Do:</label>
         <input type="date" id="to-date">
       </div>
       <br>
@@ -275,22 +276,4 @@
     </form>
   </div>
 </section>
-
-<br>
-    
 {% endblock %}
-
-
-<!--<div class="btn-group" role="group">
-                             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Praha
-                             </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <a class="dropdown-item" href="#">Praha 1</a>
-                                        <a class="dropdown-item" href="#">Praha 2</a>
-                                        <a class="dropdown-item" href="#">Praha 3</a>
-                                        <a class="dropdown-item" href="#">Praha 4</a>
-                                        <a class="dropdown-item" href="#">Praha 5</a>
-                                        <a class="dropdown-item" href="#">Praha 6</a>
-                                        <a class="dropdown-item" href="#">Praha 7</a>
-                                        <a class="dropdown-item" href="#">Praha 8</a>-->

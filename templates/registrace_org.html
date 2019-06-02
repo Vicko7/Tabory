@@ -1,231 +1,233 @@
-    {% extends "layout.html" %}
+{% extends "layout.html" %}
 
-    {% block body %}
-    
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>    
-    <script src="{{ url_for('static', filename='registration/registration.js')}}"></script>  
+{% block body %}
+
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <section class="features3 cid-rpUYdNoG90" id="features3-5">
-<div class="container">
+  <div class="container">
+   
+    <form class="well form-horizontal" method="post" id="contact_form">
+      <fieldset>
 
-    <form class="well form-horizontal" method="post"  id="contact_form">
-<fieldset>
-
-<!-- Form Name -->
-<legend><center><h2><b>Registrace pro organizátora</b></h2></center></legend><br>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">IČO</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_ico" placeholder="IČO" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-  
-  
-<!-- Text input-->
-
-  <div class="form-group">
-    <label class="col-md-4 control-label">DIČ</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    <input  name="organizer_dic" placeholder="DIČ" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Název organizace</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_name" placeholder="Název organizace" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Adresa</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_address" placeholder="Adresa" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
-  <!-- Number input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Číslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_street_num" placeholder="Číslo popisné" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Město</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_city" placeholder="Město" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-    <label class="col-md-4 control-label" >PSČ</label> 
-      <div class="col-md-4 inputGroupContainer">
-      <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    <input name="organizer_psc" placeholder="PSČ" class="form-control"  type="int">
-      </div>
-    </div>
-  </div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Telefonní číslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="organizer_phone" placeholder="00420 xxx xxx xxx" class="form-control"  type="int">
+        <!-- Form Name -->
+        <legend>
+          <center>
+            <h2><b>Registrace pro organizátora</b></h2>
+          </center>
+        </legend><br>
       
-    </div>
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">IČO</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_ico" placeholder="IČO" class="form-control" type="int">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">DIČ</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_dic" placeholder="DIČ" class="form-control" type="int">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Název organizace</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_name" placeholder="Název organizace" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Adresa</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_address" placeholder="Adresa" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Number input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Číslo</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_street_num" placeholder="Číslo popisné" class="form-control" type="int">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Město</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_city" placeholder="Město" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">PSČ</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_psc" placeholder="PSČ" class="form-control" type="int">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Telefonní číslo</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input name="organizer_phone" placeholder="00420 xxx xxx xxx" class="form-control" type="int">
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">WEB</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_web" placeholder="Webová adresa" class="form-control" type="text">
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Kontaktní osoba</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_contact_person" placeholder="Kontaktní osoba" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Popis činnosti</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_description" placeholder="Popis činnosti" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Uživatelské jméno</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_username" placeholder="Username" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Heslo</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_password" placeholder="Heslo" class="form-control" type="password">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Potvrzení hesla</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="organizer_password_confirmed" placeholder="Potvrzení hesla" class="form-control"
+                type="password">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input name="organizer_email" placeholder="E-Mail adresa" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Success message -->
+        <div class="alert alert-success" role="alert" id="success_message">Success 
+          <i class="glyphicon glyphicon-thumbs-up"></i> Vše vpořádku!.</div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4"><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit"
+              class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspREGISTRACE <span
+                class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+          </div>
+        </div>
+        <p>
+          <center>Kliknutín na REGISTRACE, souhlasíte s podmínky GDPR a podmínkami používaní webu.
+            Už máte účet? <a href="https://hledamtabor.herokuapp.com/prihlaseni" target_blank>Přihlašte se.</a></center>
+        </p>
+
+      </fieldset>
+    </form>
   </div>
-</div>
-  
-   <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >WEB</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_web" placeholder="Webová adresa" class="form-control"  type="text">
-      
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Kontaktní osoba</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_contact_person" placeholder="Kontaktní osoba" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Popis činnosti</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_description" placeholder="Popis činnosti" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
- 
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Uživatelské jméno</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_username" placeholder="Username" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Heslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_password" placeholder="Heslo" class="form-control"  type="password">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Potvrzení hesla</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_password_confirmed" placeholder="Potvrzení hesla" class="form-control"  type="password">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label">E-Mail</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-       <input name="organizer_email" placeholder="E-Mail adresa" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
- 
-
-
-<!-- Select Basic -->
-
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Vše vpořádku!.</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspREGISTRACE <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-    </div>
-</div>
-<!-- Button -->
-<div class="form-group">
-    <label class="col-md-4 control-label"></label>
-    <div class="col-md-4"><br>
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspREGISTRACE <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-      </div>
-  </div>
-<p>Kliknutín na REGISTRACE, souhlasíte s podmínky GDPR a podmínkami používaní webu.
-    Už máte účet? Přihlašte se</p>
-</fieldset>
-</form>
-</div>
-
 </section>
 
-    {% endblock %}
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="{{ url_for('static', filename='registration/registration.js')}}"></script>-->
+
+{% endblock %}

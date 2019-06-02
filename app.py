@@ -204,6 +204,10 @@ def onas():
 def mapa():
     return render_template ("mapa.html")
 
+@app.route('/zkouska_mapa')
+def zkouska_mapa():
+    return render_template ("zkouska_mapa.html")
+
     
 @app.route('/prihlaseni')
 def prihlaseni():
@@ -257,6 +261,74 @@ def registrace_uz_post():
 def success():
     return render_template("success.html")
 
+@app.route('/registrace_camp' , methods = ["GET"])
+def registrace_camp():
+    return render_template("registrace_camp.html")
+
+@app.route('/registrace_camp' , methods = ["POST"])
+def registrace_camp_post():
+    if request.method == 'POST':
+        nazev= request.form['camp_name']
+        web= request.form['camp_web']
+        camp_address= request.form['camp_address']
+        camp_girl= request.form['camp_girl']
+        camp_boy= request.form['camp_boy']
+        camp_girl_boy= request.form['camp_girl_boy']
+        camp_mum_daughter= request.form['camp_mum_daughter']
+        camp_dad_son= request.form['camp_dad_son']
+        camp_parent_kid= request.form['camp_parent_kid']
+        camp_senior= request.form['camp_senior']
+        camp_single= request.form['camp_single']
+        camp_handicapped= request.form['camp_handicapped']
+        camp_focus_language= request.form['camp_focus_language']
+        camp_focus_classic= request.form['camp_focus_classic']
+        camp_focus_sport= request.form['camp_focus_sport']
+        camp_focus_art= request.form['camp_focus_art']
+        camp_focus_christ= request.form['camp_focus_christ']
+        camp_focus_science= request.form['camp_focus_science']
+        camp_focus_others= request.form['camp_focus_others']
+        camp_type_urban= request.form['camp_type_urban']
+        camp_type_nature= request.form['camp_type_nature']
+        camp_CR= request.form['camp_CR']
+        camp_international= request.form['camp_international']
+        accommodation_cabin= request.form['accommodation_cabin']
+        accommodation_camp= request.form['accommodation_camp']
+        accommodation_house= request.form['accommodation_house']
+        accommodation_other= request.form['accommodation_other']
+        age1= request.form['age1']
+        age2= request.form['age2']
+        age3= request.form['age3']
+        age4= request.form['age4']
+        age5= request.form['age5']
+        stay_day= request.form['stay_day']
+        stay_weekend= request.form['stay_weekend']
+        stay_week= request.form['stay_week']
+        stay_more= request.form['stay_more']
+        stay_2weeks= request.form['stay_2weeks']
+        region_Praha= request.form['region_Praha']
+        region_jihoceskya= request.form['region_jihocesky']
+        region_jihomoravsky= request.form['region_jihomoravsky']
+        region_karlovarsky= request.form['region_karlovarsky']
+        region_vysocina= request.form['region_vysocina']
+        region_kralovehradecky= request.form['region_kralovehradecky']
+        region_moravskoslezky= request.form['region_moravskoslezky']
+        region_olomoucky= request.form['region_olomouckyy']
+        region_pardubicky= request.form['region_pardubicky']
+        region_plzensky= request.form['region_plzensky']
+        region_ustecky= request.form['region_ustecky']
+        region_zlinsky= request.form['region_zlinsky']
+        date_start= request.form['date_start']
+        date_finish= request.form['date_finish']
+        camp_price= request.form['camp_price']
+        databaze.registrace_uz(nazev, web, camp_address, camp_girl, camp_boy, camp_girl_boy, camp_mum_daughter,
+camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, camp_focus_language, camp_focus_classic, camp_focus_sport, camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_type_urban, camp_type_nature,
+camp_CR, camp_international, accommodation_cabin, accommodation_camp, accommodation_house, accommodation_other, age1,
+age2, age3, age4, age5, stay_day, stay_weekend, stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky,
+region_karlovarsky, region_vysocina, region_kralovehradecky, region_moravskoslezky, region_olomoucky, region_pardubicky, region_plzensky.
+region_ustecky, region_zlinsky, date_start, date_finish, camp_price)
+    return render_template("success.html")
+
+   
 
 if __name__ != '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')

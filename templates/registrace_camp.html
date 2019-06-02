@@ -1,5 +1,5 @@
-    {% extends "layout.html" %}
-    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% extends "layout.html" %}
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
@@ -10,296 +10,280 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
   <meta charset="utf-8"> -->
 
-    {% block body %}
-  
-    
+{% block body %}
 
-<div class="container">
+<section class="features3 cid-rpUYdNoG90" id="features3-5">
+    <div class="container">
+    <form class="well form-horizontal" action="/registrace_camp" method="post" id="contact_form">
+      <fieldset>
+        <!-- Form Name -->
+        <h4><b>Registrace tábora</b></h4>
+        <br>
+        <h5>
+          <bold>Informace o táborě<br></bold>
+        </h5>
+        <div class="row">
+          <div class="col-sm-4">
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-<fieldset>
+            <div>
+              Název tábora<br><input type="text" name="camp_name" />
+            </div><br>
+          </div>
 
-<!-- Form Name -->
-<legend><center><h2><b>Registrace tábora</b></h2></center></legend><br>
+          <div class="col-sm-4">
+            <div>
+              Webová adresa tábora<br><input type="text" name="camp_web" />
+            </div><br>
+          </div>
 
-<!-- Text input-->
+          <div class="col-sm-4">
+            <div>
+              Adresa tábora<br><input type="text" name="camp_address"><br>
+              <bold>Formát adresy je: ulice, popisné číslo, PSČ, město</bold>
+            </div><br>
+          </div>
+          <br>
+          <div class="container">
+            <h5>
+              <bold>Pro koho<br></bold>
+            </h5>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_girl" value="1">jen pro holky<br></label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_boy" value="1">jen pro kluky<br></label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_girl_boy" value="1">pro holky i
+                    kluky<br></label>
+                </div><br>
+              </div>
 
-<div class="form-group">
-  <label class="col-md-4 control-label">Název tábora</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="camp_name" placeholder="Název tábora" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-  
-  
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">DIČ</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_dic" placeholder="DIČ" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Název organizace</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_name" placeholder="Název organizace" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Adresa</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_address" placeholder="Adresa" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
-  <!-- Number input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Číslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_street_num" placeholder="Číslo popisné" class="form-control"  type="int">
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Město</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_city" placeholder="Město" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Telefonní číslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="organizer_phone" placeholder="00420 xxx xxx xxx" class="form-control"  type="int">
-      
-    </div>
-  </div>
-</div>
-  
-   <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >WEB</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_web" placeholder="Webová adresa" class="form-control"  type="text">
-      
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Kontaktní osoba</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_contact_person" placeholder="Kontaktní osoba" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
-  <!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Popis činnosti</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_description" placeholder="Popis činnosti" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
- 
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Uživatelské jméno</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="organizer_username" placeholder="Username" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Heslo</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_password" placeholder="Heslo" class="form-control"  type="password">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Potvrzení hesla</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="organizer_password_confirmed" placeholder="Potvrzení hesla" class="form-control"  type="password">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label">E-Mail</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="organizer_email" placeholder="E-Mail adresa" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-  
- <!-- Text input-->
-      
-  <div class="form-group">
-    <label class="col-md-4 control-label">GDPR</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-      <div class="[ form-group ]">
-            &nbsp&nbsp&nbsp<input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary" autocomplete="off" />
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
-                </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    SOUHLAS se zásady ochrany osobních údajů
-                </label>
-           </div>
-               <span>Soubor o ochraně osobních údajů
-               </span>
-               
+              <div class="col-sm-4">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_parent_kid" value="1">rodiče s dětmi<br>
+                  </label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_mam_daughter" value="1">máma a dcera<br>
+                  </label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_dad_son" value="1">táta a syn<br>
+                  </label>
+                </div><br>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_single" value="1">nezadaní<br>
+                  </label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_senior" value="1">senioři<br>
+                  </label>
+                </div><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="camp_handicapped" value="1">handicapovaní<br>
+                  </label><br>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-
-
-
-<!-- Select Basic -->
-
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPOTVRĎ <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-</div>
-    </div>
-    
-    
-    <!-- /.container -->
-  
-
-
-
-
-
-    <!-- /.container -->
-
-    <!--This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<body>
+        <br>
 
         <div class="container">
-                <p>jsem organizator</p>
-               <p>jsem uzivatel</p>
-          </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card card-signin flex-row my-5">
-            <div class="card-img-left d-none d-md-flex">
-
-                Background image for card set in CSS!
-
+          <div class="row">
+            <div class="col-sm-4">
+              <h5>
+                <bold>Zájmy</bold>
+              </h5>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_classic" value="1">Klasický
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_language" value="1">Jazykový
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_sport" value="1">Sportovní
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_art" value="1">Umělecký
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_christ" value="1">Církevní
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_science" value="1">Věda a IT
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="camp_focus_others" value="1">Jiné
+                </label>
+              </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Registrace</h5>
-              <form class="form-signin">
-                <div class="form-label-group">
-                  <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                  <label for="inputUserame">Username</label>
-                </div>
-  
-                <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                  <label for="inputEmail">Email address</label>
-                </div>
-                
-                <hr>
-  
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Heslo</label>
-                </div>
-                
-                <div class="form-label-group">
-                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputConfirmPassword">Podtvrď heslo</label>
-                </div>
-  
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrace</button>
-                <a class="d-block text-center mt-2 small" href="https://hledamtabor.herokuapp.com/prihlaseni">Přihlášení</a>
-                <hr class="my-4">
-                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
-                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
-              </form>
+            <div class="col-sm-4">
+              <h5>
+                <bold>Typ</bold>
+              </h5>
+              <select name="misto" class="custom-select-sm">
+                <option value="camp_type_urban">Příměstský</option>
+                <option value="camp_type_nature">Pobytový</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <h5>
+                <bold>Místo</bold>
+              </h5>
+              <div>
+                <select name="misto" class="custom-select-sm">
+                  <option value="camp_CR">ČR</option>
+                  <option value="camp_international">Mezinárodní</option>
+                </select>
+              </div><br>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-4">
+              <h5>
+                <bold>Ubytování</bold>
+              </h5>
+              <select name="ubytovani" class="" multiple size="6">
+                <option value="accommodation_cabin">Chata</option>
+                <option value="accommodation_camp">Stan</option>
+                <option value="accommodation_house">Ubytovna</option>
+                <option value="accommodation_other">Jiné</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <h5>
+                <bold>Věk</bold>
+              </h5>
+              <div>
+                <select name="vek" class="" multiple size="6">
+                  <option value="age1">0 až 7</option>
+                  <option value="age2">8 až 15</option>
+                  <option value="age3">16 až 18</option>
+                  <option value="age4">19 až 54</option>
+                  <option value="age5">55+</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h5>
+                <bold>Délka pobytu</bold>
+              </h5>
+              <div>
+                <select name="delka_pobytu" class="custom-select-sm">
+                  <option value="stay_day">1 den</option>
+                  <option value="stay_weekend">víkend</option>
+                  <option value="stay_week">&lt; 1 týden</option>
+                  <option value="stay_more">> 1 týden</option>
+                  <option value="stay_2weeks">&gt; 2 týdny</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-4">
+              <h5>
+                <bold>Kraj</bold>
+              </h5>
+              <div>
+                <select name="kraje" class="custom-select-sm">
+                  <option value="region_Praha">Praha</option>
+                  <option value="region_jihocesky">Jihočeský</option>
+                  <option value="region_jihomoravsky">Jihomorvský</option>
+                  <option value="region_karlovarsky">Karlovarský</option>
+                  <option value="region_vysocina">Vysočina</option>
+                  <option value="region_kralovehradecky">Kralovéhradecký</option>
+                  <option value="region_moravskoslezky">Moravskoslezký</option>
+                  <option value="region_olomoucky">Olomoucký</option>
+                  <option value="region_pardubicky">Pardubický</option>
+                  <option value="region_plzensky">Plzeňský</option>
+                  <option value="region_stredocesky">Středočeský</option>
+                  <option value="region_ustecky">Ústecký</option>
+                  <option value="region_zlinsky">Zlínský</option>
+                  <option disabled>--</option>
+                  <option value="1">Praha 1</option>
+                  <option value="2">Praha 2</option>
+                  <option value="3">Praha 3</option>
+                  <option value="4">Praha 4</option>
+                  <option value="5">Praha 5</option>
+                  <option value="6">Praha 6</option>
+                  <option value="7">Praha 7</option>
+                  <option value="8">Praha 8</option>
+                  <option value="9">Praha 9</option>
+                  <option value="10">Praha 10</option>
+                  <option value="11">Praha 11</option>
+                  <option value="12">Praha 12</option>
+                  <option value="13">Praha 13</option>
+                  <option value="14">Praha 14</option>
+                  <option value="15">Praha 15</option>
+                  <option value="10">Praha 16</option>
+                  <option value="11">Praha 17</option>
+                  <option value="12">Praha 18</option>
+                  <option value="13">Praha 19</option>
+                  <option value="14">Praha 20</option>
+                  <option value="15">Praha 21</option>
+                  <option value="12">Praha 22</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <h5>
+                <bold>Termín</bold>
+              </h5>
+              <label for="date_from">Od:</label>
+              <input type="date" id="from-date"><br>
+              <label for="date_to">Do:</label>
+              <input type="date" id="to-date">
+            </div>
+            <br>
+            <div class="col-sm-4">
+              <h5>
+                <bold>Cena</bold>
+              </h5>
+              <div>
+                  <input type="integer" name="cena" />
+             </div>
+              <br>
+              <div>
+                <input type="submit" value="Vlož svůj tábor">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </body> 
--->
-    {% endblock %}
+      </fieldset>
+    </form>
+  </div>
+</section>
+{% endblock %}
