@@ -190,12 +190,16 @@ def prace():
 @app.route('/prace', methods=["GET", "POST"])
 def vloz_praci():
     if request.method == 'POST':
-        datum = request.form['datum']
-        typ = request.form['typ']
+        
+        typN = request.form['typ_nabidka']
+        typP = request.form['typ_poptavka']
         text = request.form['text']
-        databaze.registrace_prace(datum, typ, text)
+        dateStart = request.form['date_start']
+        dateFinish = request.form['date_finish']
+        databaze.registrace_prace(typ_nabidka, typ_poptavka, text, date_start, date_finish )
     return render_template("success.html")
 
+    
 @app.route('/onas')
 def onas():
     return render_template ("onas.html")

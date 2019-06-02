@@ -180,4 +180,45 @@ def tabulka_vypis():
            conn.close()
     return camp_table
 
+def registrace_job (typ_nabidka, typ_poptavka, date_start, date_finish, text):
+    conn = db.get_db()
+#sql dotaz na import
+    sql = """INSERT INTO job (typ_nabidka, typ_poptavka, date_start, date_finish, text)
+            VALUES(%s, %s, %s, %s, %s,) RETURNING job_id;"""
+    #pripojeni k databazi a zavolam import db vkladani tabora
+    j_id = None
+    try:
+        cur = conn.cursor()
+        cur.execute(sql, (typ_nabidka, typ_poptavka, date_start, date_finish, text))
+        c_id = cur.fetchone()[0]
+        conn.commit()
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+    return j_id
+
+def tabulka_vypis_job():
+        sql = """SELECT job_id
+                    , typ_nabidka
+                    , typ_poptavka
+                    , date_start
+                    , date_finish
+                    , text
+                    FROM JOB
+                    """
+    conn = get_db()
+    try:
+        cur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+        cur.execute(sql)
+        job_table = cur.fetchall()
+        conn.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+           conn.close()
+    return job_table
     
