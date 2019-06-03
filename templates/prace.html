@@ -16,41 +16,54 @@
                             <bold>Typ</bold>
                         </h5>
                         <div>
-                            <select name="typ" class="custom-select-sm">
-                                <option selected value="typ_nabidka">Nabídka</option>
-                                <option value="typ_poptavka">Poptávka</option>
+                            <select name="typ" class="custom-select-sm" required>
+                                <option selected value="nabidka">Nabídka</option>
+                                <option value="poptavka">Poptávka</option>
                             </select>
                         </div>
                     </div>
+
 
                     <div class="col-sm-4">
                         <h5>
                             <bold>Popis</bold>
                             <h5>
-                                <input type="text" name="text" />
+                                <input type="text" name="text" required/>
                                 <br>
                                 <br>
-                                <input type="submit">
                                 <br>
+                                <div class="form-group">
+                                        
+                                        
+                                      </div>
                     </div>
                     <div class="col-sm-4">
 
-                        <h5><bold>Termín</bold></h5><h8>(Zadání datumu je nepovinné.)</h8>
-                        <br>
-                        <label for="date_start">Od:</label> <input type="date" id="from-date"><br>
-                        <label for="date_finish">Do:</label> <input type="date" id="to-date"><br>
+                        <h5>
+                            <bold>Termín <small>(Zadání datumu je nepovinné.)</small></bold>
+                        </h5>
+                    
+                        <label for="date_start">Od:&nbsp;</label><input type="date" name="date_start" id="from-date"><br>
+                        <label for="date_finish">Do:&nbsp;</label><input type="date" name="date_finish" id="to-date"><br>
                     </div>
                 </div>
             </fieldset>
+            <br>
+            <br>
+            <center><input type="submit" value="Odeslat" /></center>
+
         </form>
         <br>
         <br>
-        <div><h5>Výpis zadaných nabídek a poptávak</h5></div>
+        <div>
+            <h5>Výpis zadaných nabídek a poptávak</h5>
+        </div>
         <div class="table-responsive-lg">
             <table class="table">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th scope="col">Pořadí</th>
                             <th scope="col">Typ</th>
                             <th scope="col">Popis</th>
                             <th scope="col">Datum</th>
@@ -61,10 +74,10 @@
                         {% for x in job_z_db %}
                         <tr>
                             <td>{{ x.job_id }}</td>
-                            <td>{{ x.type }}</td>
+                            <td>{% if x.nabidka %}Nabídka{% endif %}
+                                {% if x.poptavka %}Poptávka{% endif %}</td>
+                            <td>{{ x.text }}</td>
                             <td>{{ x.date_start }} - {{ x.date_finish }}</td>
-                           
-
                         </tr>
                         {% endfor %}
                     </tbody>

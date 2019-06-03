@@ -84,7 +84,7 @@ def registrace_uz(jmeno, prijmeni, email, password, password_confirmed):
 
 def registrace_camp(camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
             camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
-            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy,
+            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_cr, camp_international, camp_girl, camp_boy,
             camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, accommodation_cabin,
             accommodation_tent, accommodation_house, accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend,
             stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
@@ -93,7 +93,7 @@ def registrace_camp(camp_type_urban, camp_type_nature, camp_date_start, camp_dat
 #sql dotaz na import
     sql = """INSERT INTO camp (camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
             camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport,
-            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy,
+            camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_cr, camp_international, camp_girl, camp_boy,
             camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, accommodation_cabin,
             accommodation_tent, accommodation_house, accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend,
             stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
@@ -106,7 +106,7 @@ def registrace_camp(camp_type_urban, camp_type_nature, camp_date_start, camp_dat
     try:
         cur = conn.cursor()
         cur.execute(sql, (camp_type_urban, camp_type_nature, camp_date_start, camp_date_finish, camp_price, camp_price_remark, camp_remark,
-            camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport, camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_CR, camp_international, camp_girl, camp_boy, camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid,                      
+            camp_equipment, camp_address, camp_web, camp_name, camp_programm, camp_focus_classic, camp_focus_language, camp_focus_sport, camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_cr, camp_international, camp_girl, camp_boy, camp_girl_boy, camp_mum_daughter, camp_dad_son, camp_parent_kid,                      
             camp_senior, camp_single, camp_handicapped, accommodation_cabin, accommodation_tent, accommodation_house,
             accommodation_other, age1, age2, age3, age4, age5, camp_capacity, stay_day, stay_weekend, stay_week, stay_more, stay_2weeks,
             region_Praha, region_jihocesky, region_jihomoravsky, region_karlovarsky, region_vysocina,
@@ -180,16 +180,23 @@ def tabulka_vypis():
            conn.close()
     return camp_table
 
-def registrace_job (typ_nabidka, typ_poptavka, date_start, date_finish, text):
+def registrace_job (typ, text, date_start, date_finish):
     conn = db.get_db()
     #sql dotaz na import
-    sql = """INSERT INTO JOB (typ_nabidka, typ_poptavka, date_start, date_finish, text)
+    sql = """INSERT INTO JOB (nabidka, poptavka, text, date_start, date_finish)
             VALUES(%s, %s, %s, %s, %s) RETURNING job_id;"""
     #pripojeni k databazi a zavolam import db vkladani job(prace)
     j_id = None
+    if typ == "nabidka":
+        nabidka = True
+        poptavka = False
+    else:
+        nabidka = False
+        poptavka = True
+ 
     try:
         cur = conn.cursor()
-        cur.execute(sql, (typ_nabidka, typ_poptavka, date_start, date_finish, text))
+        cur.execute(sql, (nabidka, poptavka, text, date_start, date_finish))
         j_id = cur.fetchone()[0]
         conn.commit()
         cur.close()
@@ -202,11 +209,11 @@ def registrace_job (typ_nabidka, typ_poptavka, date_start, date_finish, text):
 
 def tabulka_vypis_job():
     sql = """SELECT job_id
-                    , typ_nabidka
-                    , typ_poptavka
+                    , nabidka
+                    , poptavka
+                    , text
                     , date_start
                     , date_finish
-                    , text
                     FROM JOB
                     """
     conn = get_db()

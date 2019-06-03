@@ -84,8 +84,8 @@ def tabory_hledani():
     misto_sql = []
     if request.form.get("camp_international") == "1":
         misto_sql.append("camp_international = TRUE")
-    if request.form.get("camp_CR") == "1":
-        misto_sql.append("camp_CR = TRUE")
+    if request.form.get("camp_cr") == "1":
+        misto_sql.append("camp_cr = TRUE")
     if misto_sql:
         podminky.append(" OR ".join(misto_sql))
 
@@ -102,15 +102,15 @@ def tabory_hledani():
     vek = request.form.getlist("vek")
     if "Nerozhoduje" not in vek:
         if "age1" in vek:
-            vek_sql.append("age1 = 1")
+            vek_sql.append("age1 = TRUE")
         if "age2" in vek:
-            vek_sql.append("age2 = 1")
+            vek_sql.append("age2 = TRUE")
         if "age3" in vek:
-            vek_sql.append("age3 = 1")
+            vek_sql.append("age3 = TRUE")
         if "age4" in vek:
-            vek_sql.append("age4 = 1")
+            vek_sql.append("age4 = TRUE")
         if "age5" in vek:
-            vek_sql.append("age5 = 1")
+            vek_sql.append("age5 = TRUE")
         podminky.append(" OR ".join(vek_sql))
     
     delka_sql = []
@@ -183,19 +183,54 @@ def tabor_detail(id_taboru):
 def dobrovolnictvi():
     return render_template ("dobrovolnictvi.html")
 
-@app.route('/prace')
-def prace():
-    return render_template ("prace.html")
+# @app.route('/prace', methods=["GET"])
+# def prace():
+#     job_sql = []
+#     if request.form.get("nabidka") == "1":
+#         job_sql.append("nabidka = TRUE")
+#     if request.form.get("poptavka") == "1":
+#         job_sql.append("poptavka = TRUE")
+#     if job_sql:
+#         job_sql.append
+    
+#     text = request.form.get("text")
+#     text_sl = []
+
+
+
+#     termin_start = request.form.get("date_from")
+#     termin_finish = request.form.get("date_to")
+#     termin_sql = []
+#     if termin_start:
+#         termin_sql.append("camp_date_start >= '" + termin_start + "'")
+#     if termin_finish:
+#         termin_sql.append("camp_date_finish <= '" + termin_finish + "'")
+#     if termin_sql:
+#         termin_sql_where = " AND ".join(termin_sql)
+#         podminky.append(termin_sql_where)
+
+
+# #     where = " "
+ 
+# #  sql = """SELECT * FROM job WHERE  (""" + where + ")"
+# #     print(sql)
+    
+# #     conn = db.get_db()
+# #     cur = conn.cursor()
+# #     cur.execute(sql)
+# #     data = cur.fetchall()
+# #     print(data)
+# #     return render_template ("prace.html, job_z_db = data)
 
 @app.route('/prace', methods=["GET", "POST"])
-def vloz_praci():
+def vloz_praci(): 
     if request.method == 'POST':
-        typ_nabidka = request.form['typ_nabidka']
-        typ_poptavka = request.form['typ_poptavka']
+        typ = request.form['typ']
         text = request.form['text']
         date_start = request.form['date_start']
         date_finish = request.form['date_finish']
-        databaze.registrace_prace(typ_nabidka, typ_poptavka, text, date_start, date_finish)
+        databaze.registrace_job(typ, text, date_start, date_finish)
+    data = databaze.tabulka_vypis_job()
     return render_template ("prace.html", job_z_db = data)
    
 
@@ -293,7 +328,7 @@ def registrace_camp_post():
         camp_focus_others= request.form['camp_focus_others']
         camp_type_urban= request.form['camp_type_urban']
         camp_type_nature= request.form['camp_type_nature']
-        camp_CR= request.form['camp_CR']
+        camp_cr= request.form['camp_cr']
         camp_international= request.form['camp_international']
         accommodation_cabin= request.form['accommodation_cabin']
         accommodation_camp= request.form['accommodation_camp']
@@ -326,7 +361,7 @@ def registrace_camp_post():
         camp_price= request.form['camp_price']
         databaze.registrace_uz(nazev, web, camp_address, camp_girl, camp_boy, camp_girl_boy, camp_mum_daughter,
 camp_dad_son, camp_parent_kid, camp_senior, camp_single, camp_handicapped, camp_focus_language, camp_focus_classic, camp_focus_sport, camp_focus_art, camp_focus_christ, camp_focus_science, camp_focus_others, camp_type_urban, camp_type_nature,
-camp_CR, camp_international, accommodation_cabin, accommodation_camp, accommodation_house, accommodation_other, age1,
+camp_cr, camp_international, accommodation_cabin, accommodation_camp, accommodation_house, accommodation_other, age1,
 age2, age3, age4, age5, stay_day, stay_weekend, stay_week, stay_more, stay_2weeks, region_Praha, region_jihocesky, region_jihomoravsky,
 region_karlovarsky, region_vysocina, region_kralovehradecky, region_moravskoslezky, region_olomoucky, region_pardubicky, region_plzensky.
 region_ustecky, region_zlinsky, date_start, date_finish, camp_price)
