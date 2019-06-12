@@ -97,7 +97,18 @@ def tabory_hledani():
     if typ_sql:
         podminky.append(" OR ".join(typ_sql))
   
-
+    ubyt_sql = []
+    if request.form.get("accommodation_cabin") == "1":
+        ubyt_sql.append("accommodation_cabin = TRUE")
+    if request.form.get("accommodation_camp") == "1":
+        ubyt_sql.append("accommodation_camp = TRUE")
+    if request.form.get("accommodation_house") == "1":
+        ubyt_sql.append("accommodation_house = TRUE")
+    if request.form.get("accommodation_other") == "1":
+        ubyt_sql.append("accommodation_other = TRUE")
+    if ubyt_sql:
+        podminky.append(" OR ".join(ubyt_sql))
+  
     vek_sql = []
     vek = request.form.getlist("vek")
     if "Nerozhoduje" not in vek:
