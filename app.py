@@ -150,11 +150,19 @@ def tabory_hledani():
         podminky.append(termin_sql_where)
 
 
+    #where = "(" + ") AND (".join(podminky) + ")"
+
+    #sql = """SELECT * FROM camp WHERE  (""" + where + ")"
+
     where = "(" + ") AND (".join(podminky) + ")"
 
-    sql = """SELECT * FROM camp WHERE  (""" + where + ")"
-    print(sql)
-    
+    sql = "SELECT * FROM camp"
+    if podminky == []:
+        print(sql)
+    else:
+            sql = "SELECT * FROM camp WHERE  (" + where + ")"
+            print(sql)
+
     conn = db.get_db()
     cur = conn.cursor()
     cur.execute(sql)
