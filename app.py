@@ -160,8 +160,8 @@ def tabory_hledani():
     if podminky == []:
         print(sql)
     else:
-            sql = "SELECT * FROM camp WHERE  (" + where + ")"
-            print(sql)
+        sql = "SELECT * FROM camp WHERE  (" + where + ")"
+        print(sql)
 
     conn = db.get_db()
     cur = conn.cursor()
